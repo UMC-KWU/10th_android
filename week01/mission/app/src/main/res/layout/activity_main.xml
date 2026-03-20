@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/ivBack"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="뒤로가기"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="오늘 하루는 어땠나요?"
+        android:textColor="@color/text_primary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivBack" />
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="감정우표를 선택해주세요"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="선택한 감정우표를 기반으로 맞춤형 질문이 배달됩니다"
+        android:textColor="@color/text_secondary"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitle" />
+
+    <LinearLayout
+        android:id="@+id/layoutHappyItem"
+        android:layout_width="344dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDescription">
+
+        <ImageView
+            android:id="@+id/ivHappyStamp"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:contentDescription="행복 우표"
+            app:srcCompat="@drawable/ic_stamp_happy" />
+
+        <TextView
+            android:id="@+id/tvHappyLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="더없이 행복한 하루였어요"
+            android:textColor="@color/emotion_default"
+            android:textSize="14sp"
+            android:textStyle="normal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutExcitedItem"
+        android:layout_width="344dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutHappyItem">
+
+        <ImageView
+            android:id="@+id/ivExcitedStamp"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:contentDescription="흥분 우표"
+            app:srcCompat="@drawable/ic_stamp_excited" />
+
+        <TextView
+            android:id="@+id/tvExcitedLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="들뜨고 흥분돼요"
+            android:textColor="@color/emotion_default"
+            android:textSize="14sp"
+            android:textStyle="normal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutNormalItem"
+        android:layout_width="344dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutExcitedItem">
+
+        <ImageView
+            android:id="@+id/ivNormalStamp"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:contentDescription="보통 우표"
+            app:srcCompat="@drawable/ic_stamp_normal" />
+
+        <TextView
+            android:id="@+id/tvNormalLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="평범한 하루였어요"
+            android:textColor="@color/emotion_default"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutAnxiousItem"
+        android:layout_width="344dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutNormalItem">
+
+        <ImageView
+            android:id="@+id/ivAnxiousStamp"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:contentDescription="불안 우표"
+            app:srcCompat="@drawable/ic_stamp_anxious" />
+
+        <TextView
+            android:id="@+id/tvAnxiousLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="생각이 많아지고 불안해요"
+            android:textColor="@color/emotion_default"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutAngryItem"
+        android:layout_width="344dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutAnxiousItem">
+
+        <ImageView
+            android:id="@+id/ivAngryStamp"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:contentDescription="화남 우표"
+            app:srcCompat="@drawable/ic_stamp_angry" />
+
+        <TextView
+            android:id="@+id/tvAngryLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="부글부글 화가 나요"
+            android:textColor="@color/emotion_default"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="text_primary">#2C2C2C</color>
+    <color name="text_secondary">#8E8E8E</color>
+
+    <color name="emotion_default">#2C2C2C</color>
+    <color name="emotion_happy">#C9A227</color>
+    <color name="emotion_excited">#5BA7D1</color>
+    <color name="emotion_normal">#8A84D6</color>
+    <color name="emotion_anxious">#6DBA8A</color>
+    <color name="emotion_angry">#E26B6B</color>
+</resources>
