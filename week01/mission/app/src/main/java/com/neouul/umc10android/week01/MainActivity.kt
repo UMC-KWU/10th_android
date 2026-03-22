@@ -24,21 +24,21 @@ class MainActivity : AppCompatActivity() {
         binding.ivExciting.setOnClickListener {
             resetColor()
             binding.tvExciting.setTextColor(AppColors.excitingText)
+        }
 
-            binding.ivSoso.setOnClickListener {
-                resetColor()
-                binding.tvSoso.setTextColor(AppColors.sosoText)
-            }
+        binding.ivSoso.setOnClickListener {
+            resetColor()
+            binding.tvSoso.setTextColor(AppColors.sosoText)
+        }
 
-            binding.ivUnrest.setOnClickListener {
-                resetColor()
-                binding.tvUnrest.setTextColor(AppColors.unrestText)
-            }
+        binding.ivUnrest.setOnClickListener {
+            resetColor()
+            binding.tvUnrest.setTextColor(AppColors.unrestText)
+        }
 
-            binding.ivAngry.setOnClickListener {
-                resetColor()
-                binding.tvAngry.setTextColor(AppColors.angryText)
-            }
+        binding.ivAngry.setOnClickListener {
+            resetColor()
+            binding.tvAngry.setTextColor(AppColors.angryText)
         }
     }
 
