@@ -9,8 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.neouul.umc10android.week02.presentation.fragment.HomeFragment"
         android:label="홈"
-        tools:layout="@layout/fragment_home">
-    </fragment>
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/shopFragment"
@@ -33,7 +32,9 @@
         <!-- Cart -> Shop 로 이동하는 action 추가 -->
         <action
             android:id="@+id/action_homeFragment_to_shopFragment"
-            app:destination="@id/shopFragment" />
+            app:destination="@id/shopFragment"
+            app:popUpTo="@id/cartFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
