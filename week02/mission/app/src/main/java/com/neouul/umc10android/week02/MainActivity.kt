@@ -16,13 +16,21 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 1. NavHostFragment를 찾아NavController를 가져옵니다.
+        // Intent로 데이터 전달받기
+        val title = intent.getStringExtra("TITLE") ?: "데이터 가져오기를 실패했습니다"
+        val bundle = Bundle().apply {
+            putString("TITLE", title)
+        }
+
+        // 1. NavHostFragment를 찾아 NavController를 가져오기
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
-        // 2. BottomNavigationView와 NavController를 연결합니다.
-        // 이 한 줄로 탭 클릭 시 화면 전환 로직이 완성됩니다.
+        // 2. NavController에 graph를 설정하면서 bundle을 함께 전달
+        navController.setGraph(R.navigation.nav_graph, bundle)
+
+        // 3. BottomNavigationView와 NavController를 연결하기
         binding.mainBnv.setupWithNavController(navController)
     }
 }

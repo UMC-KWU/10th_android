@@ -8,8 +8,6 @@
     android:background="@color/color_frame_background"
     tools:context="MainActivity">
 
-    <!--상단 바-->
-
     <!--중앙 fragment container-->
 
     <androidx.fragment.app.FragmentContainerView
@@ -21,8 +19,7 @@
         app:layout_constraintBottom_toTopOf="@id/main_bnv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/nav_graph" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <!--bottom navigation-->
