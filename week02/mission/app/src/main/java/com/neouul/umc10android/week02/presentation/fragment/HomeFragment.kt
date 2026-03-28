@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.neouul.umc10android.week02.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -20,11 +21,14 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+    // Safe Args 대리자(Delegate) 선언
+    private val args: HomeFragmentArgs by navArgs()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         // 전달받은 TITLE 데이터 가져오기
-        val title = arguments?.getString("TITLE") ?: "데이터 가져오기를 실패했습니다"
+        val title = args.title
 
         // TextView에 값 설정하기
         binding.tvTitle.text = title

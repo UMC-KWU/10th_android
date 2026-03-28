@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         // Intent로 데이터 전달받기
         val title = intent.getStringExtra("TITLE") ?: "데이터 가져오기를 실패했습니다"
         val bundle = Bundle().apply {
-            putString("TITLE", title)
+            putString("title", title)
         }
 
         // 1. NavHostFragment를 찾아 NavController를 가져오기
