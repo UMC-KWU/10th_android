@@ -37,15 +37,5 @@
         android:padding="50dp"
         android:background="#CCCCCC"/>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/main_bnv"
-        android:background="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/bottom_nav_menu"
-        app:itemIconSize="29dp"
-        app:labelVisibilityMode="labeled"
-        app:itemRippleColor="@android:color/transparent"
-        />
 
 </LinearLayout>

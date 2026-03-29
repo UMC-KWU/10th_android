@@ -32,6 +32,7 @@ class BagFragment : Fragment() {
     }
 
     private fun isBagEmpty(): Boolean {
+        //미래를 위해 설계
         return true
     }
 
@@ -42,9 +43,8 @@ class BagFragment : Fragment() {
 
         requireActivity().findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(
             R.id.main_bnv
-        ).selectedItemId = R.id.buy //여기 고쳐야 함
+        ).selectedItemId = R.id.buy
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

@@ -16,6 +16,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.main_fragmentContainer, HomeFragment())
+            .commit()
+        binding.mainBnv.selectedItemId = R.id.home
+
         binding.mainBnv.setOnItemSelectedListener { item ->
             when (item.itemId){
                 R.id.home -> {
@@ -32,7 +37,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.wishList -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_fragmentContainer, WishListFragment())
+                        .replace(R.id.main_fragmentContainer, WishlistFragment())
                         .commit()
                     true
                 }
