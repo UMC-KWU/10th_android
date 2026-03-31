@@ -1,10 +1,12 @@
-package com.neouul.umc10android.week03
+package com.neouul.umc10android.week03.presentation.splash
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.neouul.umc10android.week03.presentation.main.MainActivity
+import com.neouul.umc10android.week03.R
 import com.neouul.umc10android.week03.databinding.ActivitySplashBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

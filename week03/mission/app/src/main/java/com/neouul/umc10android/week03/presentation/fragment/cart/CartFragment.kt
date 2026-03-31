@@ -1,4 +1,4 @@
-package com.neouul.umc10android.week03.presentation.fragment
+package com.neouul.umc10android.week03.presentation.fragment.cart
 
 import android.os.Bundle
 import android.view.View

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.neouul.umc10android.week03.presentation.fragment.HomeFragment"
+        android:name="com.neouul.umc10android.week03.presentation.fragment.home.HomeFragment"
         android:label="홈"
         tools:layout="@layout/fragment_home">
         <argument
@@ -18,19 +18,19 @@
 
     <fragment
         android:id="@+id/shopFragment"
-        android:name="com.neouul.umc10android.week03.presentation.fragment.ShopFragment"
+        android:name="com.neouul.umc10android.week03.presentation.fragment.shop.ShopFragment"
         android:label="구매하기"
         tools:layout="@layout/fragment_shop" />
 
     <fragment
         android:id="@+id/wishFragment"
-        android:name="com.neouul.umc10android.week03.presentation.fragment.WishFragment"
+        android:name="com.neouul.umc10android.week03.presentation.fragment.wish.WishFragment"
         android:label="위시리스트"
         tools:layout="@layout/fragment_wish" />
 
     <fragment
         android:id="@+id/cartFragment"
-        android:name="com.neouul.umc10android.week03.presentation.fragment.CartFragment"
+        android:name="com.neouul.umc10android.week03.presentation.fragment.cart.CartFragment"
         android:label="장바구니"
         tools:layout="@layout/fragment_cart">
 
@@ -44,7 +44,7 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.neouul.umc10android.week03.presentation.fragment.ProfileFragment"
+        android:name="com.neouul.umc10android.week03.presentation.fragment.profile.ProfileFragment"
         android:label="프로필"
         tools:layout="@layout/fragment_profile" />
 </navigation>

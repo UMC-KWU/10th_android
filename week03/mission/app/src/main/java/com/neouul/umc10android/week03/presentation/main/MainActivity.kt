@@ -1,10 +1,11 @@
-package com.neouul.umc10android.week03
+package com.neouul.umc10android.week03.presentation.main
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.neouul.umc10android.week03.R
 import com.neouul.umc10android.week03.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

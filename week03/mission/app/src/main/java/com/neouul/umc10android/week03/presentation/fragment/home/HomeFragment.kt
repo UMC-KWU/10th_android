@@ -1,4 +1,4 @@
-package com.neouul.umc10android.week03.presentation.fragment
+package com.neouul.umc10android.week03.presentation.fragment.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.neouul.umc10android.week03.databinding.FragmentHomeBinding
+import com.neouul.umc10android.week03.presentation.fragment.HomeFragmentArgs
 
 class HomeFragment : Fragment() {
     // 마지막으로 시스템 뒤로가기를 누른 시간을 저장할 변수
