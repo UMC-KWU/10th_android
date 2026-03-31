@@ -23,7 +23,7 @@ class SplashActivity : AppCompatActivity() {
 
             val intent = Intent(this@SplashActivity, MainActivity::class.java).apply {
                 // 데이터 전달
-                putExtra("TITLE", "UMC week2")
+                putExtra("TITLE", "UMC week3")
             }
             startActivity(intent)
 

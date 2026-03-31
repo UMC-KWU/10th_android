@@ -17,7 +17,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
 
         binding.btnOrder.setOnClickListener {
             // nav_graph.xml에 정의한 action ID를 사용해 이동합니다.
-            findNavController().navigate(R.id.action_homeFragment_to_shopFragment)
+            findNavController().navigate(R.id.action_cartFragment_to_shopFragment)
         }
     }
 

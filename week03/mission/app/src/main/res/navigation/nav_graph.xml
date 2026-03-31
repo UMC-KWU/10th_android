@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="week03.presentation.fragment.HomeFragment"
+        android:name="com.neouul.umc10android.week03.presentation.fragment.HomeFragment"
         android:label="홈"
         tools:layout="@layout/fragment_home">
         <argument
@@ -18,25 +18,25 @@
 
     <fragment
         android:id="@+id/shopFragment"
-        android:name="week03.presentation.fragment.ShopFragment"
+        android:name="com.neouul.umc10android.week03.presentation.fragment.ShopFragment"
         android:label="구매하기"
         tools:layout="@layout/fragment_shop" />
 
     <fragment
         android:id="@+id/wishFragment"
-        android:name="week03.presentation.fragment.WishFragment"
+        android:name="com.neouul.umc10android.week03.presentation.fragment.WishFragment"
         android:label="위시리스트"
         tools:layout="@layout/fragment_wish" />
 
     <fragment
         android:id="@+id/cartFragment"
-        android:name="week03.presentation.fragment.CartFragment"
+        android:name="com.neouul.umc10android.week03.presentation.fragment.CartFragment"
         android:label="장바구니"
         tools:layout="@layout/fragment_cart">
 
         <!-- Cart -> Shop 로 이동하는 action 추가 -->
         <action
-            android:id="@+id/action_homeFragment_to_shopFragment"
+            android:id="@+id/action_cartFragment_to_shopFragment"
             app:destination="@id/shopFragment"
             app:popUpTo="@id/cartFragment"
             app:popUpToInclusive="true" />
@@ -44,7 +44,7 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="week03.presentation.fragment.ProfileFragment"
+        android:name="com.neouul.umc10android.week03.presentation.fragment.ProfileFragment"
         android:label="프로필"
         tools:layout="@layout/fragment_profile" />
 </navigation>
