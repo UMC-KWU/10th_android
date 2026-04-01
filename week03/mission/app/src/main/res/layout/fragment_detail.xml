@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="18dp">
+
+        <!-- 이미지 영역 -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="366dp"
+            android:src="@drawable/img_detail" />
+
+        <!-- 텍스트 영역 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginVertical="35dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Training Crew Socks"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nike Everyday Plus Cushioned"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="US$10" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="30dp"
+                android:textSize="16sp"
+                android:lineSpacingMultiplier="1.2"
+                android:text="The Nike Everyday Plus Cushioned Socks bring comfort to your workout with extra cushioning under the heel and forefoot and a snug, supportive arch band. Sweat-wicking power and breathability up top help keep your feet dry and cool to help push you through that extra set.
+
+Shown: Multi-Color
+Style: SX6897-965" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View Product Details"
+                android:textColor="@color/gray1"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <!-- 버튼 영역 -->
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:strokeColor="@color/gray2"
+            app:strokeWidth="1dp"
+            app:cornerRadius="100dp"
+            android:id="@+id/btn_select_size"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_marginHorizontal="20dp"
+            android:fontFamily="@font/noto_sans_medium"
+            android:includeFontPadding="false"
+            android:text="사이즈 선택"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white" />
+
+        <Button
+            android:id="@+id/btn_order"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_marginVertical="15dp"
+            android:layout_marginHorizontal="20dp"
+            android:fontFamily="@font/noto_sans_medium"
+            android:includeFontPadding="false"
+            android:text="주문하기"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/black" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:strokeColor="@color/gray2"
+            app:strokeWidth="1dp"
+            app:cornerRadius="100dp"
+            android:id="@+id/btn_wishlist"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_marginHorizontal="20dp"
+            android:fontFamily="@font/noto_sans_medium"
+            android:includeFontPadding="false"
+            android:text="위시리스트"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white" />
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
