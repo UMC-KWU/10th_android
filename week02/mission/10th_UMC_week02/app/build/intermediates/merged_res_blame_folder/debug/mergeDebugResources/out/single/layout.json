@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-mergeDebugResources-47:\\layout\\fragment_wishlist.xml",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\layout\\fragment_wishlist.xml"
+    },
+    {
+        "merged": "com.example.a10th_umc_week02.app-mergeDebugResources-47:/layout/fragment_basket.xml",
+        "source": "com.example.a10th_umc_week02.app-main-50:/layout/fragment_basket.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-mergeDebugResources-47:\\layout\\fragment_profile.xml",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-mergeDebugResources-47:\\layout\\fragment_buy.xml",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\layout\\fragment_buy.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-mergeDebugResources-47:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-mergeDebugResources-47:\\layout\\fragment_basket.xml",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\layout\\fragment_basket.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-mergeDebugResources-47:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\layout\\activity_main.xml"
+    }
+]
