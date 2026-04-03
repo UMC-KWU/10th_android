@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.neouul.umc10android.week03.R
 import com.neouul.umc10android.week03.databinding.FragmentShopBinding
 import com.neouul.umc10android.week03.domain.model.Product
@@ -89,7 +89,7 @@ class ShopFragment : Fragment(R.layout.fragment_shop) {
         val adapter = ShopAdapter(
             productList,
             onVisitClicked = { product ->
-                Toast.makeText(context, "${product.name}에게 방문하기", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_global_to_detailFragment)
             })
 
         // 3. 어댑터 연결 및 LayoutManager 설정

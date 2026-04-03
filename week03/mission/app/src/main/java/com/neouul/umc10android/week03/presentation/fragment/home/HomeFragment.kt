@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -97,7 +98,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val adapter = HomeAdapter(
             productList,
             onVisitClicked = { product ->
-                Toast.makeText(context, "${product.name}에게 방문하기", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_global_to_detailFragment)
             })
 
         // 3. 어댑터 연결 및 LayoutManager 설정

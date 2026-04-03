@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.neouul.umc10android.week03.R
 import com.neouul.umc10android.week03.databinding.ActivityMainBinding
@@ -33,5 +34,20 @@ class MainActivity : AppCompatActivity() {
 
         // 3. BottomNavigationView와 NavController를 연결하기
         binding.mainBnv.setupWithNavController(navController)
+
+        // 하단 탭 클릭 시 상세 페이지가 열려있다면 닫고 이동하도록 설정
+        binding.mainBnv.setOnItemSelectedListener { item ->
+            if (navController.currentDestination?.id == R.id.detailFragment) {
+                navController.popBackStack()
+            }
+            NavigationUI.onNavDestinationSelected(item, navController)
+        }
+
+        // 상세 페이지 진입 시 '구매하기' 탭 하이라이트 유지 로직
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.detailFragment) {
+                binding.mainBnv.menu.findItem(R.id.shopFragment).isChecked = true
+            }
+        }
     }
 }

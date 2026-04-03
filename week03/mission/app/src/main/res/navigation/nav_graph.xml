@@ -14,6 +14,7 @@
             android:name="title"
             app:argType="string"
             android:defaultValue="default" />
+
     </fragment>
 
     <fragment
@@ -27,6 +28,7 @@
         android:name="com.neouul.umc10android.week03.presentation.fragment.wish.WishFragment"
         android:label="위시리스트"
         tools:layout="@layout/fragment_wish" />
+
 
     <fragment
         android:id="@+id/cartFragment"
@@ -47,4 +49,15 @@
         android:name="com.neouul.umc10android.week03.presentation.fragment.profile.ProfileFragment"
         android:label="프로필"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.neouul.umc10android.week03.presentation.fragment.detail.DetailFragment"
+        android:label="상세 페이지"
+        tools:layout="@layout/fragment_detail" />
+
+    <action
+        android:id="@+id/action_global_to_detailFragment"
+        app:destination="@id/detailFragment"/>
+
 </navigation>
