@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.databinding.FragmentHomeBinding
 
 
@@ -23,6 +24,16 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val products = listOf(
+            Product(R.mipmap.product_1, "Air Jordan XXXVI", "","",price="US\$185"),
+            Product(R.mipmap.product_2, "Nike Air Force 1 '07", "","", price = "US\$115")
+        )
+
+        binding.productsRecycle.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            adapter = ProductAdapter(products)
+        }
     }
 
     override fun onDestroyView() {
