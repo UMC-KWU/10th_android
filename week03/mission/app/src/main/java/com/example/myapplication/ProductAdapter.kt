@@ -5,8 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.ItemProductBinding
 
-class ProductAdapter(private val products: List<Product>) :
-    RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+class ProductAdapter(private val products: List<Product>,
+    private val onItemClick: (Product) -> Unit
+) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     inner class ProductViewHolder(private val binding: ItemProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -15,6 +16,10 @@ class ProductAdapter(private val products: List<Product>) :
             binding.productImage.setImageResource(product.image)
             binding.productName.text = product.name
             binding.productPrice.text = product.price
+
+            binding.root.setOnClickListener {
+                onItemClick(product)
+            }
         }
     }
 

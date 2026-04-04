@@ -58,7 +58,13 @@ class BuyFragment : Fragment() {
     private fun setupRecyclerView(products: List<Product>) {
         binding.rvProducts.layoutManager = GridLayoutManager(context, 2)
         binding.rvProducts.adapter = BuyProductAdapter(products) { product ->
-            // 상세 화면 이동 (나중에 구현)
+            val intent = android.content.Intent(context, ProductDetailActivity::class.java).apply {
+                putExtra("image", product.image)
+                putExtra("name", product.name)
+                putExtra("category", product.category)
+                putExtra("price", product.price)
+            }
+            startActivity(intent)
         }
     }
 

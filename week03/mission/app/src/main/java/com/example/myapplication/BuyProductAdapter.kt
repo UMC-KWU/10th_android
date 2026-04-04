@@ -26,13 +26,26 @@ class BuyProductAdapter(
             } else {
                 binding.tvBestSeller.visibility = View.GONE
             }
+            updateWishlistIcon(product)
+
+            binding.btnWishlist.setOnClickListener {
+                WishlistManager.toggle(product)
+                updateWishlistIcon(product)
+            }
 
             binding.root.setOnClickListener {
                 onItemClick(product)
             }
         }
-    }
 
+        private fun updateWishlistIcon(product: Product) {
+            if (WishlistManager.isWishlisted(product)) {
+                binding.btnWishlist.setImageResource(R.drawable.heartstraight_filled) // 채워진 하트
+            } else {
+                binding.btnWishlist.setImageResource(R.drawable.heartstraight) // 빈 하트
+            }
+        }
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BuyProductViewHolder {
         val binding = ItemBuyProductBinding.inflate(
             LayoutInflater.from(parent.context), parent, false

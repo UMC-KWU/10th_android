@@ -26,13 +26,22 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val products = listOf(
-            Product(R.mipmap.product_1, "Air Jordan XXXVI", "","",price="US\$185"),
-            Product(R.mipmap.product_2, "Nike Air Force 1 '07", "","", price = "US\$115")
+            Product(R.mipmap.product_1, "Air Jordan XXXVI", "", "", price = "US\$185"),
+            Product(R.mipmap.product_2, "Nike Air Force 1 '07", "", "", price = "US\$115")
         )
 
         binding.productsRecycle.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            adapter = ProductAdapter(products)
+            adapter = ProductAdapter(products) { product ->
+                val intent =
+                    android.content.Intent(context, ProductDetailActivity::class.java).apply {
+                        putExtra("image", product.image)
+                        putExtra("name", product.name)
+                        putExtra("category", product.category)
+                        putExtra("price", product.price)
+                    }
+                startActivity(intent)
+            }
         }
     }
 
@@ -40,5 +49,4 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }
