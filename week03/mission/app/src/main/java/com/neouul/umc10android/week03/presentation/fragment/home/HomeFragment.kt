@@ -9,8 +9,8 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.neouul.umc10android.week03.NavGraphDirections
 import com.neouul.umc10android.week03.R
 import com.neouul.umc10android.week03.databinding.FragmentHomeBinding
 import com.neouul.umc10android.week03.domain.model.Product
@@ -98,14 +98,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val adapter = HomeAdapter(
             productList,
             onVisitClicked = { product ->
-                findNavController().navigate(R.id.action_global_to_detailFragment)
+                val action = NavGraphDirections.actionGlobalToDetailFragment(product.id)
+                findNavController().navigate(action)
             })
 
         // 3. 어댑터 연결 및 LayoutManager 설정
         binding.homeRecyclerview.adapter = adapter
         binding.homeRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-
-
 
     }
 

@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.neouul.umc10android.week03.NavGraphDirections
 import com.neouul.umc10android.week03.R
 import com.neouul.umc10android.week03.databinding.FragmentWishBinding
 import com.neouul.umc10android.week03.domain.model.Product
@@ -57,7 +58,8 @@ class WishFragment : Fragment(R.layout.fragment_wish) {
         val adapter = WishAdapter(
             productList,
             onVisitClicked = { product ->
-                findNavController().navigate(R.id.action_global_to_detailFragment)
+                val action = NavGraphDirections.actionGlobalToDetailFragment(product.id)
+                findNavController().navigate(action)
             })
 
         // 3. 어댑터 연결 및 LayoutManager 설정
