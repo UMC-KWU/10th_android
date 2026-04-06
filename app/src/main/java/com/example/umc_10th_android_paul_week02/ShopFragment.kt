@@ -5,13 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.umc_10th_android_paul_week02.databinding.FragmentShopBinding
+import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 class ShopFragment : Fragment() {
 
     private var _binding: FragmentShopBinding? = null
     private val binding get() = _binding!!
+
+    // 데이터스토어 매니저 선언
+    private lateinit var dataStoreManager: DataStoreManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,21 +26,18 @@ class ShopFragment : Fragment() {
     ): View {
         _binding = FragmentShopBinding.inflate(inflater, container, false)
 
-        // 1. 제공해주신 4개 이미지로 상품 데이터 리스트 생성
-        val shopProductList = arrayListOf(
-            Product(R.drawable.socks_nike, "Nike Everyday Plus Cushioned", "Training Ankle Socks (6 Pairs)\n5 Colours", "US$10", false),
-            Product(R.drawable.socks_nike_elite, "Nike Elite Crew", "Basketball Socks\n7 Colours", "US$16", false),
-            Product(R.drawable.shoe_airforce_01, "Nike Air Force 1 '07", "Women's Shoes\n5 Colours", "US$115", false),
-            Product(R.drawable.shoe_jordan_01, "Jordan ENike Air Force \n1 '07ssentials", "Men's Shoes\n2 Colours", "US$115", false)
-        )
+        // 뷰페이저 어댑터 연결
+        val shopPagerAdapter = ShopPagerAdapter(this)
+        binding.vpShop.adapter = shopPagerAdapter
 
-        // 2. 어댑터 생성 및 데이터 연결
-        val shopAdapter = ShopProductAdapter(shopProductList)
-        binding.rvShopProduct.adapter = shopAdapter
-        binding.rvShopProduct.layoutManager = GridLayoutManager(requireContext(), 2)
-
-        // 3. GridLayoutManager
-        binding.rvShopProduct.layoutManager = GridLayoutManager(requireContext(), 2)
+        // 탭 레이아웃과 뷰페이저 연결
+        TabLayoutMediator(binding.tlShop, binding.vpShop) { tab, position ->
+            tab.text = when (position) {
+                0 -> "전체"
+                1 -> "Tops & T-Shirts"
+                else -> "sale"
+            }
+        }.attach()
 
         return binding.root
     }

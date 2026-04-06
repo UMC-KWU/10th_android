@@ -4,9 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.umc_10th_android_paul_week02.databinding.ItemShopProductBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ShopProductAdapter(private val productList: ArrayList<Product>) :
     RecyclerView.Adapter<ShopProductAdapter.ViewHolder>() {
+    lateinit var dataStoreManager: DataStoreManager
 
     inner class ViewHolder(val binding: ItemShopProductBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -29,17 +33,19 @@ class ShopProductAdapter(private val productList: ArrayList<Product>) :
         holder.binding.tvDescription.text = product.description
         holder.binding.tvPrice.text = product.price
 
-        // 1. 처음 로딩될 때 하트 상태 표시
         updateHeartIcon(holder, product.isLiked)
 
-        // 2. 하트 클릭 시 상태 변경 로직
+        // 하트 클릭 시 상태 변경 및 저장 로직
         holder.binding.ivHeart.setOnClickListener {
-            product.isLiked = !product.isLiked // true -> false, false -> true 전환
+            product.isLiked = !product.isLiked // 상태 반전
             updateHeartIcon(holder, product.isLiked)
+
+            CoroutineScope(Dispatchers.IO).launch {
+                dataStoreManager.saveWishlist(productList)
+            }
         }
     }
 
-    // 하트 아이콘 이미지를 교체해주는 함수
     private fun updateHeartIcon(holder: ViewHolder, isLiked: Boolean) {
         if (isLiked) {
             holder.binding.ivHeart.setImageResource(R.drawable.ic_heart_filled)
