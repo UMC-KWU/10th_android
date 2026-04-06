@@ -1,0 +1,198 @@
+[
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\drawable_bottom_navigation_color.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\drawable\\bottom_navigation_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-xhdpi_ic_nikehome_foreground.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-xhdpi\\ic_nikehome_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-hdpi_ic_nikehome.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-hdpi\\ic_nikehome.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\layout_fragment_wishlist.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\layout\\fragment_wishlist.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-xxxhdpi_ic_nikehome_round.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-xxxhdpi\\ic_nikehome_round.webp"
+    },
+    {
+        "merged": "com.example.a10th_umc_week02.app-debug-48:/layout_fragment_basket.xml.flat",
+        "source": "com.example.a10th_umc_week02.app-main-50:/layout/fragment_basket.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-xhdpi_ic_nikehome_round.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-xhdpi\\ic_nikehome_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-xhdpi_ic_nikehome.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-xhdpi\\ic_nikehome.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-xxhdpi_ic_nikehome.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-xxhdpi\\ic_nikehome.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-hdpi_ic_nikehome_foreground.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-hdpi\\ic_nikehome_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\layout_fragment_profile.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-xxxhdpi_ic_nikehome.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-xxxhdpi\\ic_nikehome.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\drawable_ic_bagsimple.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\drawable\\ic_bagsimple.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\drawable_ic_nikehome_background.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\drawable\\ic_nikehome_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\drawable_ic_listmagnifyingglass.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\drawable\\ic_listmagnifyingglass.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-xxhdpi_ic_nikehome_round.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-xxhdpi\\ic_nikehome_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-anydpi-v26_ic_nikehome_round.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-anydpi-v26\\ic_nikehome_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\drawable_ic_housesimple.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\drawable\\ic_housesimple.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-hdpi_ic_nikehome_round.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-hdpi\\ic_nikehome_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\layout_fragment_buy.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\layout\\fragment_buy.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\menu_nike_menu.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\menu\\nike_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-mdpi_ic_nikehome.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-mdpi\\ic_nikehome.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\drawable_ic_heartstraight.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\drawable\\ic_heartstraight.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\drawable_ic_user.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\drawable\\ic_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-xxxhdpi_ic_nikehome_foreground.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-xxxhdpi\\ic_nikehome_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-anydpi-v26_ic_nikehome.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-anydpi-v26\\ic_nikehome.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-xxhdpi_ic_nikehome_foreground.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-xxhdpi\\ic_nikehome_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-mdpi_ic_nikehome_foreground.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-mdpi\\ic_nikehome_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\layout_fragment_basket.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\layout\\fragment_basket.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\mipmap-mdpi_ic_nikehome_round.webp.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\mipmap-mdpi\\ic_nikehome_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-debug-48:\\drawable_ic_bagcircle.xml.flat",
+        "source": "C:\\Users\\82104\\.gradle\\daemon\\9.3.1\\com.example.a10th_umc_week02.app-main-50:\\drawable\\ic_bagcircle.xml"
+    }
+]
