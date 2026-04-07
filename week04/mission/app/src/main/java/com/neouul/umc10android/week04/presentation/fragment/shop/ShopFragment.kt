@@ -3,74 +3,37 @@ package com.neouul.umc10android.week04.presentation.fragment.shop
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import com.neouul.umc10android.week04.NavGraphDirections
+import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.tabs.TabLayout
 import com.neouul.umc10android.week04.R
-import com.neouul.umc10android.week04.core.MyApplication
 import com.neouul.umc10android.week04.databinding.FragmentShopBinding
-import com.neouul.umc10android.week04.domain.model.Product
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 class ShopFragment : Fragment(R.layout.fragment_shop) {
 
     private var _binding: FragmentShopBinding? = null
     private val binding get() = _binding!!
 
-    private val productRepository by lazy {
-        (requireActivity().application as MyApplication).container.productRepository
-    }
-    private val wishRepository by lazy {
-        (requireActivity().application as MyApplication).container.wishRepository
-    }
-
-    private lateinit var shopAdapter: ShopAdapter
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentShopBinding.bind(view)
 
-        setupRecyclerView()
-        observeProducts()
-    }
+        // 내부 NavHostFragment에서 NavController 찾기 (탭 전환용)
+        val navHostFragment =
+            childFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
 
-    private fun setupRecyclerView() {
-        shopAdapter = ShopAdapter(
-            mutableListOf(),
-            onVisitClicked = { product ->
-                val action = NavGraphDirections.actionGlobalToDetailFragment(product.id)
-                findNavController().navigate(action)
-            },
-            onWishClicked = { product ->
-                toggleWish(product)
+        binding.tap.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                when (tab?.position) {
+                    0 -> navController.navigate(R.id.shopTap0Fragment)
+                    1 -> navController.navigate(R.id.shop1Fragment)
+                    2 -> navController.navigate(R.id.shop2Fragment)
+                }
             }
-        )
-        binding.shopRecyclerview.adapter = shopAdapter
-        binding.shopRecyclerview.layoutManager = GridLayoutManager(requireContext(), 2)
-    }
 
-    private fun observeProducts() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            productRepository.getTotalProducts().collectLatest { products ->
-                shopAdapter.updateList(products)
-            }
-        }
-    }
-
-    private fun toggleWish(product: Product) {
-        val newWishState = !product.isWished
-        val updatedProduct = product.copy(isWished = newWishState)
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            productRepository.updateTotalProduct(updatedProduct)
-            if (newWishState) {
-                wishRepository.addWishedProduct(updatedProduct)
-            } else {
-                wishRepository.removeWishedProduct(updatedProduct)
-            }
-        }
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
     }
 
     override fun onDestroyView() {

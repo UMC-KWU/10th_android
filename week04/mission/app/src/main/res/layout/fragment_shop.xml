@@ -3,26 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="15dp"
-    android:paddingHorizontal="10dp">
+    android:paddingHorizontal="10dp"
+    android:paddingTop="15dp">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tap"
         android:layout_width="wrap_content"
         android:layout_height="56dp"
+        android:background="@android:color/transparent"
         android:minWidth="300dp"
-        app:tabTextColor="@color/gray1"
-        app:tabSelectedTextColor="@color/black"
-        app:tabTextAppearance="@style/TabNormal"
-        app:tabSelectedTextAppearance="@style/TabSelected"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tabGravity="start"
-        android:background="@android:color/transparent"
         app:tabIndicator="@drawable/tab_indicator_rect"
-        app:tabIndicatorHeight="2dp"
         app:tabIndicatorColor="@color/black"
-        app:tabIndicatorFullWidth="true">
+        app:tabIndicatorFullWidth="true"
+        app:tabIndicatorHeight="2dp"
+        app:tabSelectedTextAppearance="@style/TabSelected"
+        app:tabSelectedTextColor="@color/black"
+        app:tabTextAppearance="@style/TabNormal"
+        app:tabTextColor="@color/gray1">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -43,19 +43,17 @@
 
     </com.google.android.material.tabs.TabLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/shop_recyclerview"
-        android:layout_width="0dp"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="12dp"
-        android:paddingHorizontal="10dp"
-        android:clipToPadding="false"
-        android:scrollbars="vertical"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
+        android:layout_marginTop="10dp"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/shop_nav_graph"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tap" />
+        app:layout_constraintTop_toBottomOf="@+id/tap" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
