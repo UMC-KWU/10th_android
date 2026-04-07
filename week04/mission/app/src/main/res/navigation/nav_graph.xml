@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.neouul.umc10android.week04.presentation.fragment.home.HomeFragment"
+        android:label="홈"
+        tools:layout="@layout/fragment_home">
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue="default" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.neouul.umc10android.week04.presentation.fragment.shop.ShopFragment"
+        android:label="구매하기"
+        tools:layout="@layout/fragment_shop" />
+
+    <fragment
+        android:id="@+id/wishFragment"
+        android:name="com.neouul.umc10android.week04.presentation.fragment.wish.WishFragment"
+        android:label="위시리스트"
+        tools:layout="@layout/fragment_wish" />
+
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.neouul.umc10android.week04.presentation.fragment.cart.CartFragment"
+        android:label="장바구니"
+        tools:layout="@layout/fragment_cart">
+
+        <!-- Cart -> Shop 로 이동하는 action 추가 -->
+        <action
+            android:id="@+id/action_cartFragment_to_shopFragment"
+            app:destination="@id/shopFragment"
+            app:popUpTo="@id/cartFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.neouul.umc10android.week04.presentation.fragment.profile.ProfileFragment"
+        android:label="프로필"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.neouul.umc10android.week04.presentation.fragment.detail.DetailFragment"
+        android:label="상세 페이지"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="productId"
+            app:argType="long" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_to_detailFragment"
+        app:destination="@id/detailFragment">
+        <argument
+            android:name="productId"
+            app:argType="long" />
+    </action>
+
+</navigation>
