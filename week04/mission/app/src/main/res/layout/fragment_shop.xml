@@ -16,6 +16,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/tab_all_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
@@ -23,6 +24,7 @@
             android:gravity="center">
 
             <TextView
+                android:id="@+id/tv_tab_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="24dp"
@@ -32,37 +34,67 @@
                 android:textSize="18sp" />
 
             <View
+                android:id="@+id/view_tab_all_indicator"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="12dp"
                 android:background="@android:color/black" />
         </LinearLayout>
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/tab_tops_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
-            android:text="Tops &amp; T-Shirts"
-            android:textColor="#8E8E8E"
-            android:textSize="18sp" />
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <TextView
+            <TextView
+                android:id="@+id/tv_tab_tops"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tops &amp; T-Shirts"
+                android:textColor="#8E8E8E"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/view_tab_tops_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="12dp"
+                android:background="@android:color/black"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab_sale_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="sale"
-            android:textColor="#8E8E8E"
-            android:textSize="18sp" />
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_tab_sale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sale"
+                android:textColor="#8E8E8E"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/view_tab_sale_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="12dp"
+                android:background="@android:color/black"
+                android:visibility="invisible" />
+        </LinearLayout>
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_shop_products"
+    <FrameLayout
+        android:id="@+id/shop_tab_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:clipToPadding="false"
-        android:paddingStart="14dp"
-        android:paddingEnd="14dp"
-        android:paddingBottom="12dp"
-        android:scrollbars="vertical" />
+        android:layout_weight="1" />
 
 </LinearLayout>
