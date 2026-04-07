@@ -20,19 +20,19 @@ val WISH_KEY = stringPreferencesKey("wish_key")
 class ProductDataSourceImpl(private val context: Context) : ProductDataSource {
     override fun getTotalProducts(): Flow<String> {
         return context.dataStore.data.map { preferences ->
-            preferences[TOTAL_KEY] ?: "전체 상품 목록 없음"
+            preferences[TOTAL_KEY] ?: "[]"
         }
     }
 
     override fun getHomeProducts(): Flow<String> {
         return context.dataStore.data.map { preferences ->
-            preferences[HOME_KEY] ?: "최신 상품 목록 없음"
+            preferences[HOME_KEY] ?: "[]"
         }
     }
 
     override fun getWishProducts(): Flow<String> {
         return context.dataStore.data.map { preferences ->
-            preferences[WISH_KEY] ?: "위시리스트 목록 없음"
+            preferences[WISH_KEY] ?: "[]"
         }
     }
 
