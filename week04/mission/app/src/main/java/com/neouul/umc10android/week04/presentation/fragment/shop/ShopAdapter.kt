@@ -8,7 +8,8 @@ import com.neouul.umc10android.week04.domain.model.Product
 
 class ShopAdapter(
     private var shopList: MutableList<Product>,
-    private val onVisitClicked: (Product) -> Unit
+    private val onVisitClicked: (Product) -> Unit,
+    private val onWishClicked: (Product) -> Unit
 ) : RecyclerView.Adapter<ShopViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShopViewHolder {
@@ -16,17 +17,17 @@ class ShopAdapter(
             LayoutInflater.from(parent.context),
             parent, false
         )
-        // 생성 시 클릭 리스너도 함께 넘겨줍니다.
-        return ShopViewHolder(binding, onVisitClicked)
+        return ShopViewHolder(binding, onVisitClicked, onWishClicked)
     }
 
     override fun onBindViewHolder(holder: ShopViewHolder, position: Int) {
-        val nowShop = shopList[position]
-        holder.bind(nowShop)
+        holder.bind(shopList[position])
     }
 
-    override fun getItemCount(): Int {
-        return shopList.size
-    }
+    override fun getItemCount(): Int = shopList.size
 
+    fun updateList(newList: List<Product>) {
+        shopList = newList.toMutableList()
+        notifyDataSetChanged()
+    }
 }

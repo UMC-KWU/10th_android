@@ -16,17 +16,17 @@ class HomeAdapter(
             LayoutInflater.from(parent.context),
             parent, false
         )
-        // 생성 시 클릭 리스너도 함께 넘겨줍니다.
         return HomeViewHolder(binding, onVisitClicked)
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        val nowHome = homeList[position]
-        holder.bind(nowHome)
+        holder.bind(homeList[position])
     }
 
-    override fun getItemCount(): Int {
-        return homeList.size
-    }
+    override fun getItemCount(): Int = homeList.size
 
+    fun updateList(newList: List<Product>) {
+        homeList = newList.toMutableList()
+        notifyDataSetChanged()
+    }
 }

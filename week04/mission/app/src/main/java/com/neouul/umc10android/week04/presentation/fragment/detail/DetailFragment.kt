@@ -4,33 +4,81 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.neouul.umc10android.week04.R
+import com.neouul.umc10android.week04.core.MyApplication
 import com.neouul.umc10android.week04.databinding.FragmentDetailBinding
+import com.neouul.umc10android.week04.domain.model.Product
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
 class DetailFragment : Fragment(R.layout.fragment_detail) {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
 
-    // Safe Args 대리자 선언
     private val args: DetailFragmentArgs by navArgs()
+    private var currentProduct: Product? = null
+
+    private val productRepository by lazy {
+        (requireActivity().application as MyApplication).container.productRepository
+    }
+    private val wishRepository by lazy {
+        (requireActivity().application as MyApplication).container.wishRepository
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentDetailBinding.bind(view)
 
-        // 전달받은 productId 가져오기
         val productId = args.productId
-        Toast.makeText(requireContext(), "상품 ID: $productId", Toast.LENGTH_SHORT).show()
+        loadProduct(productId)
 
         binding.btnBack.setOnClickListener {
             findNavController().popBackStack()
         }
 
-        binding.btnOrder.setOnClickListener {
-            // nav_graph.xml에 정의한 action ID를 사용해 이동합니다.
-//            findNavController().navigate(R.id.action_cartFragment_to_shopFragment)
+        binding.btnWishlist.setOnClickListener {
+            toggleWish()
+        }
+    }
+
+    private fun loadProduct(productId: Long) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            val products = productRepository.getTotalProducts().first()
+            currentProduct = products.find { it.id == productId }
+            updateWishButtonState()
+        }
+    }
+
+    private fun toggleWish() {
+        val product = currentProduct ?: return
+        val newWishState = !product.isWished
+        val updatedProduct = product.copy(isWished = newWishState)
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            productRepository.updateTotalProduct(updatedProduct)
+            if (newWishState) {
+                wishRepository.addWishedProduct(updatedProduct)
+                Toast.makeText(requireContext(), "위시리스트에 추가되었습니다.", Toast.LENGTH_SHORT).show()
+            } else {
+                wishRepository.removeWishedProduct(updatedProduct)
+                Toast.makeText(requireContext(), "위시리스트에서 제거되었습니다.", Toast.LENGTH_SHORT).show()
+            }
+            currentProduct = updatedProduct
+            updateWishButtonState()
+        }
+    }
+
+    private fun updateWishButtonState() {
+        val isWished = currentProduct?.isWished ?: false
+        if (isWished) {
+            binding.btnWishlist.text = "위시리스트 삭제"
+            binding.btnWishlist.setIconResource(R.drawable.ic_heart_straight) // 가득 찬 하트 아이콘이 있다면 교체 가능
+        } else {
+            binding.btnWishlist.text = "위시리스트 추가"
+            binding.btnWishlist.setIconResource(R.drawable.ic_heart_straight) // 빈 하트 아이콘으로 설정
         }
     }
 

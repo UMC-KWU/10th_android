@@ -16,17 +16,17 @@ class WishAdapter(
             LayoutInflater.from(parent.context),
             parent, false
         )
-        // 생성 시 클릭 리스너도 함께 넘겨줍니다.
         return WishViewHolder(binding, onVisitClicked)
     }
 
     override fun onBindViewHolder(holder: WishViewHolder, position: Int) {
-        val nowWish = wishList[position]
-        holder.bind(nowWish)
+        holder.bind(wishList[position])
     }
 
-    override fun getItemCount(): Int {
-        return wishList.size
-    }
+    override fun getItemCount(): Int = wishList.size
 
+    fun updateList(newList: List<Product>) {
+        wishList = newList.toMutableList()
+        notifyDataSetChanged()
+    }
 }

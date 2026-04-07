@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.neouul.umc10android.week04.presentation.main.MainActivity
 import com.neouul.umc10android.week04.R
+import com.neouul.umc10android.week04.core.MyApplication
 import com.neouul.umc10android.week04.databinding.ActivitySplashBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -21,15 +22,17 @@ class SplashActivity : AppCompatActivity() {
 
         // 2초 뒤에 실행 (Coroutine 또는 Handler 사용)
         lifecycleScope.launch {
+            val productRepository = (application as MyApplication).container.productRepository
+            productRepository.initializeDataIfNeeded()
+            
             delay(2000) // 2초 대기
 
             val intent = Intent(this@SplashActivity, MainActivity::class.java).apply {
                 // 데이터 전달
-                putExtra("TITLE", "UMC week3")
+                putExtra("TITLE", "UMC week4")
             }
             startActivity(intent)
 
-            // SplashActivity를 종료해야 메인에서 '뒤로가기'를 눌러도 다시 스플래시가 안 뜸
             finish()
         }
     }

@@ -6,7 +6,8 @@ import com.neouul.umc10android.week04.domain.model.Product
 
 class ShopViewHolder(
     private val binding: ItemShopListBinding,
-    private val onVisitClicked: (Product) -> Unit
+    private val onVisitClicked: (Product) -> Unit,
+    private val onWishClicked: (Product) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(shop: Product) {
@@ -15,6 +16,12 @@ class ShopViewHolder(
         binding.tvColorNumber.text = "${shop.colorNumber} Colours"
         binding.tvPrice.text = shop.price
         
+        // 위시리스트 상태에 따른 아이콘 색상 변경 (예시: 빨간색/검정색)
+        binding.icHeart.setColorFilter(
+            if (shop.isWished) itemView.context.getColor(android.R.color.holo_red_dark)
+            else itemView.context.getColor(android.R.color.black)
+        )
+
         // 아이템 전체 클릭 리스너 설정
         binding.root.setOnClickListener {
             onVisitClicked(shop)
@@ -22,7 +29,7 @@ class ShopViewHolder(
 
         // 하트 아이콘 클릭 리스너
         binding.icHeart.setOnClickListener {
-
+            onWishClicked(shop)
         }
     }
 }

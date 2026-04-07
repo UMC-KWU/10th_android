@@ -8,4 +8,5 @@ interface ProductRepository {
     fun getHomeProducts(): Flow<List<Product>>
     suspend fun updateTotalProduct(product: Product)
     suspend fun updateHomeProduct(product: Product)
+    suspend fun initializeDataIfNeeded()
 }
