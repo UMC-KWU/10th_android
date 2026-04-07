@@ -30,7 +30,9 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         // 2. NavController에 graph를 설정하면서 bundle을 함께 전달
-        navController.setGraph(R.navigation.nav_graph, bundle)
+        if (savedInstanceState == null){
+            navController.setGraph(R.navigation.nav_graph, bundle)
+        }
 
         // 3. BottomNavigationView와 NavController를 연결하기
         binding.mainBnv.setupWithNavController(navController)
