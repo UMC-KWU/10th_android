@@ -9,8 +9,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.neouul.umc10android.week04.R
 import com.neouul.umc10android.week04.core.MyApplication
+import com.neouul.umc10android.week04.core.hideLoading
+import com.neouul.umc10android.week04.core.showLoading
 import com.neouul.umc10android.week04.databinding.FragmentDetailBinding
 import com.neouul.umc10android.week04.domain.model.Product
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
@@ -46,9 +49,12 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 
     private fun loadProduct(productId: Long) {
         viewLifecycleOwner.lifecycleScope.launch {
+            showLoading()
+            delay(500)
             val products = productRepository.getTotalProducts().first()
             currentProduct = products.find { it.id == productId }
             updateWishButtonState()
+            hideLoading()
         }
     }
 
@@ -58,6 +64,8 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         val updatedProduct = product.copy(isWished = newWishState)
 
         viewLifecycleOwner.lifecycleScope.launch {
+            showLoading()
+            delay(500)
             productRepository.updateTotalProduct(updatedProduct)
             if (newWishState) {
                 wishRepository.addWishedProduct(updatedProduct)
@@ -68,6 +76,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
             }
             currentProduct = updatedProduct
             updateWishButtonState()
+            hideLoading()
         }
     }
 
@@ -75,10 +84,10 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         val isWished = currentProduct?.isWished ?: false
         if (isWished) {
             binding.btnWishlist.text = "위시리스트 삭제"
-            binding.btnWishlist.setIconResource(R.drawable.ic_heart_straight) // 가득 찬 하트 아이콘이 있다면 교체 가능
+            binding.btnWishlist.setIconResource(R.drawable.ic_heart_straight)
         } else {
             binding.btnWishlist.text = "위시리스트 추가"
-            binding.btnWishlist.setIconResource(R.drawable.ic_heart_straight) // 빈 하트 아이콘으로 설정
+            binding.btnWishlist.setIconResource(R.drawable.ic_heart_straight)
         }
     }
 
