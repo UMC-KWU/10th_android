@@ -28,18 +28,22 @@ class MainActivity : AppCompatActivity() {
                     changeFragment(HomeFragment())
                     true
                 }
+
                 R.id.menu_shop -> {
                     changeFragment(ShopFragment())
                     true
                 }
+
                 R.id.menu_wishlist -> {
                     changeFragment(WishlistFragment())
                     true
                 }
+
                 R.id.menu_cart -> {
                     changeFragment(CartFragment())
                     true
                 }
+
                 R.id.menu_profile -> {
                     changeFragment(ProfileFragment())
                     true

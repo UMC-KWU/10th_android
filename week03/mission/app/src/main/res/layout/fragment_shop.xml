@@ -11,22 +11,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="9dp"
-        android:orientation="horizontal"
-        android:paddingHorizontal="0dp">
+        android:layout_marginStart="9dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginEnd="24dp"
+            android:orientation="vertical"
             android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="24dp"
-                android:paddingRight="24dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
                 android:text="전체"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
@@ -41,18 +41,28 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
             android:text="Tops &amp; T-Shirts"
             android:textColor="#8E8E8E"
-            android:textSize="18sp"
-            android:layout_marginEnd="24dp" />
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Shoes"
+            android:text="sale"
             android:textColor="#8E8E8E"
             android:textSize="18sp" />
-
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_shop_products"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="12dp"
+        android:scrollbars="vertical" />
 
 </LinearLayout>
