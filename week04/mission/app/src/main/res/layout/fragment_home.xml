@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Discover"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingTop="50dp"
+            android:paddingLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            android:text="9월 14일 목요일"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="8dp">
+        </TextView>
+        <ImageView
+            android:id="@+id/titleview"
+            android:layout_width="378dp"
+            android:layout_height="505dp"
+            android:src="@mipmap/titleview_foreground"
+            app:layout_constraintTop_toBottomOf="@+id/date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        </ImageView>
+        <TextView
+            android:id="@+id/titleWhat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What's New"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            app:layout_constraintTop_toBottomOf="@id/titleview"
+            android:paddingLeft="20dp">
+        </TextView>
+        <TextView
+            android:id="@+id/bottom_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="나이키 최신 상품"
+            android:textSize="28sp"
+            app:layout_constraintTop_toBottomOf="@id/titleWhat"
+            android:paddingLeft="20dp">
+
+        </TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/products_recycle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:nestedScrollingEnabled="false"
+            android:layout_marginTop="12dp"
+            android:clipToPadding="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bottom_title"
+            android:paddingBottom="170dp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
