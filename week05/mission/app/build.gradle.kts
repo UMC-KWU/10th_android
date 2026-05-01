@@ -61,4 +61,12 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.2.1")
     // Alternatively - without an Android dependency.
     implementation("androidx.datastore:datastore-preferences-core:1.2.1")
+
+    // Retrofit2 라이브러리
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
 }
