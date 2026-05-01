@@ -126,7 +126,8 @@ Style: SX6897-965" />
             android:text="위시리스트"
             android:textSize="16sp"
             android:textColor="@color/black"
-            android:backgroundTint="@color/white" />
+            android:backgroundTint="@color/white"
+            app:iconTint="@null" />
 
 
     </LinearLayout>

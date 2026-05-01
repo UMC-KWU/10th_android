@@ -27,8 +27,7 @@
         app:layout_constraintTop_toTopOf="@+id/img_product"
         app:layout_constraintEnd_toEndOf="@+id/img_product"
         android:background="@drawable/bg_circle"
-        android:backgroundTint="@color/white"
-        app:tint="@color/black" />
+        android:backgroundTint="@color/white" />
 
     <TextView
         android:id="@+id/tv_name"
