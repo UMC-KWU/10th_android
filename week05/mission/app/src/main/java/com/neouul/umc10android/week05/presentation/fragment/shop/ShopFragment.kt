@@ -24,10 +24,22 @@ class ShopFragment : Fragment(R.layout.fragment_shop) {
 
         binding.tap.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                when (tab?.position) {
-                    0 -> navController.navigate(R.id.shopTap0Fragment)
-                    1 -> navController.navigate(R.id.shop1Fragment)
-                    2 -> navController.navigate(R.id.shop2Fragment)
+                val destinationId = when (tab?.position) {
+                    0 -> R.id.shopTap0Fragment
+                    1 -> R.id.shop1Fragment
+                    2 -> R.id.shop2Fragment
+                    else -> return
+                }
+
+                navController.navigate(destinationId) {
+                    // 현재 선택된 탭의 인스턴스가 이미 위에 있으면 다시 생성하지 않음
+                    launchSingleTop = true
+                    // 탭 전환 시 이전 탭의 상태를 저장
+                    restoreState = true
+                    // 탭 전환 시 백스택이 쌓이지 않도록 시작 지점 위를 모두 비움
+                    popUpTo(navController.graph.startDestinationId) {
+                        saveState = true
+                    }
                 }
             }
 
