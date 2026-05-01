@@ -53,6 +53,15 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
             delay(500)
             val products = productRepository.getTotalProducts().first()
             currentProduct = products.find { it.id == productId }
+            
+            currentProduct?.let { product ->
+                binding.tvTopTitle.text = product.name
+                binding.tvName.text = product.name
+                binding.tvCategory.text = product.category
+                binding.tvPrice.text = product.price
+                binding.tvDescription.text = product.detailDescription.ifEmpty { product.description }
+            }
+            
             updateWishButtonState()
             hideLoading()
         }
