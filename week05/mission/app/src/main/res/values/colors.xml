@@ -5,6 +5,9 @@
 
     <color name="gray1">#767676</color>
     <color name="gray2">#E4E4E4</color>
+    <color name="gray3">#D9D9D9</color>
+    <color name="gray4">#F6F6F6</color>
+    <color name="gray5">#CDCDCD</color>
 
     <color name="color_frame_background">#FFFFFF</color>
 </resources>
