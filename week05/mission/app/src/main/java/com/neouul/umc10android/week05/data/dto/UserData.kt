@@ -1,17 +1,12 @@
 package com.neouul.umc10android.week05.data.dto
 
 import com.google.gson.annotations.SerializedName
-import com.neouul.umc10android.week05.domain.model.User
 
-data class UserData(
+data class UserData<T>(
     @SerializedName("data")
-    val data: List<UserDto>? = null,
+    val data: T? = null,
     @SerializedName("page")
     val page: Int? = null,
     @SerializedName("total_pages")
     val totalPages: Int? = null,
-) {
-    fun toDomain(): List<User> {
-        return data?.map { it.toDomain() } ?: emptyList()
-    }
-}
+)
