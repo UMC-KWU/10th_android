@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -6,9 +8,14 @@ plugins {
 
 android {
     namespace = "com.neouul.umc10android.week05"
-    compileSdk {
-        version = release(36)
+    compileSdk = 36
+
+    val localProperties = Properties()
+    val localPropertiesFile = rootProject.file("local.properties")
+    if (localPropertiesFile.exists()) {
+        localPropertiesFile.inputStream().use { localProperties.load(it) }
     }
+    val authToken = localProperties.getProperty("AUTH_TOKEN") ?: ""
 
     defaultConfig {
         applicationId = "com.neouul.umc10android.week05"
@@ -18,6 +25,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "AUTH_TOKEN", "\"$authToken\"")
     }
 
     buildTypes {
@@ -37,8 +46,9 @@ android {
         jvmTarget = "11"
     }
 
-    viewBinding {
-        enable = true
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
     }
 }
 
