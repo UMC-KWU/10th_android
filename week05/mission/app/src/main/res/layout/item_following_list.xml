@@ -7,13 +7,14 @@
 
     <ImageView
         android:id="@+id/img_product"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="3dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/img_detail" />
+        android:src="@drawable/img_detail"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
