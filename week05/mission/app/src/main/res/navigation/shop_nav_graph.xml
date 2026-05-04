@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/shop_nav_graph"
+    app:startDestination="@id/shopTap0Fragment">
+
+    <fragment
+        android:id="@+id/shopTap0Fragment"
+        android:name="com.neouul.umc10android.week05.presentation.fragment.shop_tap0.ShopTap0Fragment"
+        android:label="전체"
+        tools:layout="@layout/fragment_shop_tap0" />
+
+    <fragment
+        android:id="@+id/shop1Fragment"
+        android:name="com.neouul.umc10android.week05.presentation.fragment.shop_tap1.ShopTap1Fragment"
+        android:label="Tops &amp; T-Shirts"
+        tools:layout="@layout/fragment_shop_tap1" />
+
+    <fragment
+        android:id="@+id/shop2Fragment"
+        android:name="com.neouul.umc10android.week05.presentation.fragment.shop_tap2.ShopTap2Fragment"
+        android:label="Shoes"
+        tools:layout="@layout/fragment_shop_tap2" />
+
+</navigation>
