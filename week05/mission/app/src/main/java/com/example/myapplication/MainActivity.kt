@@ -17,9 +17,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupNavigation()
+
         lifecycleScope.launch {
             WishlistManager.init(this@MainActivity)
-            setupNavigation()
         }
     }
 
