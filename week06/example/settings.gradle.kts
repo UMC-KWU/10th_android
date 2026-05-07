@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "UMC 10th week06 todo"
+rootProject.name = "UMC 10th todo"
 include(":app")
  
