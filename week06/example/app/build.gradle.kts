@@ -53,4 +53,9 @@ dependencies {
     // hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+
+    // Room DB
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
 }
