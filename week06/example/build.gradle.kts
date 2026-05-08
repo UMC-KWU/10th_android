@@ -5,4 +5,7 @@ plugins {
 
     // hilt
     alias(libs.plugins.hilt.android) apply false
+
+    // ksp
+    id("com.google.devtools.ksp") version "2.2.21-2.0.4" apply false
 }

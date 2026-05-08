@@ -2,15 +2,18 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
 
-    id("kotlin-kapt") // 코틀린 어노테이션 프로세서 플러그인
     alias(libs.plugins.hilt.android) // Hilt 플러그인
+    id("com.google.devtools.ksp")
 }
 
 android {
-    namespace = "com.neouul.umc10android.todo"
-    compileSdk {
-        version = release(36)
+    buildFeatures {
+        dataBinding = true
     }
+
+    namespace = "com.neouul.umc10android.todo"
+
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.neouul.umc10android.todo"
@@ -46,16 +49,17 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
     // hilt
     implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
 
     // Room DB
     implementation(libs.androidx.room.runtime)
-    kapt(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
 }
