@@ -1,4 +1,4 @@
-package com.example.week03_taro
+package com.example.taro
 
 import android.os.Bundle
 import android.view.LayoutInflater

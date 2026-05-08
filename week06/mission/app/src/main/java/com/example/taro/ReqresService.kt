@@ -1,4 +1,4 @@
-package com.example.week03_taro
+package com.example.taro
 
 import retrofit2.Response
 import retrofit2.http.GET

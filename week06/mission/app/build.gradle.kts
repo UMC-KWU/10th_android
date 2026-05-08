@@ -8,13 +8,13 @@ plugins {
 
 android {
 
-    namespace = "com.example.week03_taro"
+    namespace = "com.example.taro"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.week03_taro"
+        applicationId = "com.example.taro"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

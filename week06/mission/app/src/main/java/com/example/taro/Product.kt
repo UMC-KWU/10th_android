@@ -1,4 +1,4 @@
-package com.example.week03_taro
+package com.example.taro
 
 data class Product(
     val id: String,

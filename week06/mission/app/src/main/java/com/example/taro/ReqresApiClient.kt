@@ -1,4 +1,4 @@
-package com.example.week03_taro
+package com.example.taro
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

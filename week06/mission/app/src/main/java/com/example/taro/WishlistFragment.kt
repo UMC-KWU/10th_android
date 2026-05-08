@@ -1,4 +1,4 @@
-package com.example.week03_taro
+package com.example.taro
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,49 +10,42 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.week03_taro.databinding.FragmentShopAllBinding
+import com.example.week03_taro.databinding.FragmentWishlistBinding
 import kotlinx.coroutines.launch
 
-class ShopAllFragment : Fragment() {
+class WishlistFragment : Fragment() {
 
-    private var _binding: FragmentShopAllBinding? = null
+    private var _binding: FragmentWishlistBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var shopAdapter: ShopProductAdapter
+    private lateinit var wishlistAdapter: WishlistProductAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentShopAllBinding.inflate(inflater, container, false)
+        _binding = FragmentWishlistBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        shopAdapter = ShopProductAdapter(
-            onItemClick = { product ->
-                moveToDetail(product)
-            },
-            onHeartClick = { product ->
-                viewLifecycleOwner.lifecycleScope.launch {
-                    ProductDataStore.toggleFavorite(requireContext(), product.id)
-                }
-            }
-        )
+        wishlistAdapter = WishlistProductAdapter { product ->
+            moveToDetail(product)
+        }
 
-        binding.rvShopProducts.apply {
+        binding.rvWishlistProducts.apply {
             layoutManager = GridLayoutManager(requireContext(), 2)
-            adapter = shopAdapter
+            adapter = wishlistAdapter
             setHasFixedSize(true)
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                ProductDataStore.getShopProducts(requireContext()).collect { products ->
-                    shopAdapter.submitList(products)
+                ProductDataStore.getWishlistProducts(requireContext()).collect { products ->
+                    wishlistAdapter.submitList(products)
                 }
             }
         }

@@ -1,4 +1,4 @@
-package com.example.week03_taro
+package com.example.taro
 
 class ReqresRepository(
     private val service: ReqresService = ReqresApiClient.reqresService
