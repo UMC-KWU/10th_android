@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="112dp"
+    android:layout_height="106dp"
+    android:layout_marginEnd="6dp">
+
+    <ImageView
+        android:id="@+id/iv_following_avatar"
+        android:layout_width="106dp"
+        android:layout_height="106dp"
+        android:layout_gravity="center"
+        android:background="#D9D9D9"
+        android:contentDescription="following profile image"
+        android:scaleType="centerCrop" />
+
+</FrameLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="50dp"
+        android:paddingBottom="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="50dp"
+            android:text="Discover"
+            android:textColor="@android:color/black"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:text="9월 4일 목요일"
+            android:textColor="#767676"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/iv_home_banner"
+            android:layout_width="match_parent"
+            android:layout_height="520dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="17dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_home_banner" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="40dp"
+            android:text="What’s new"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:text="나이키 최신 상품"
+            android:textColor="#7B7B7B"
+            android:textSize="24sp"
+            android:textStyle="normal" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_home_products"
+            android:layout_width="match_parent"
+            android:layout_height="430dp"
+            android:layout_marginTop="20dp"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="true"
+            android:paddingStart="24dp"
+            android:paddingEnd="12dp"
+            android:scrollbars="horizontal" />
+
+    </LinearLayout>
+</ScrollView>
