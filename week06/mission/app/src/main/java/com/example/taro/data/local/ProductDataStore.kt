@@ -1,4 +1,4 @@
-package com.example.taro
+package com.example.taro.data.local
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -7,6 +7,8 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.example.taro.R
+import com.example.taro.data.local.dataStore
 import com.example.taro.data.model.Product
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken

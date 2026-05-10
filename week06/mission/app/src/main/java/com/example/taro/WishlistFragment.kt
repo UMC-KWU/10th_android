@@ -10,6 +10,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.taro.data.local.ProductDataStore
 import com.example.taro.data.model.Product
 import com.example.taro.databinding.FragmentWishlistBinding
 import kotlinx.coroutines.launch
