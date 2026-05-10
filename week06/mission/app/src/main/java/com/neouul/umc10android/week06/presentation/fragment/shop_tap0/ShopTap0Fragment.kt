@@ -7,7 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.findNavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.neouul.umc10android.week06.NavGraphDirections
 import com.neouul.umc10android.week06.R
@@ -41,7 +41,7 @@ class ShopTap0Fragment : Fragment(R.layout.fragment_shop_tap0) {
             onVisitClicked = { product ->
                 // 부모(MainActivity)의 NavController를 사용하여 DetailFragment로 이동
                 val action = NavGraphDirections.actionGlobalToDetailFragment(product.id)
-                requireActivity().findNavController(R.id.nav_host_fragment).navigate(action)
+                Navigation.findNavController(requireActivity(), R.id.main_nav_host_fragment).navigate(action)
             },
             onWishClicked = { product ->
                 viewModel.toggleWish(product)

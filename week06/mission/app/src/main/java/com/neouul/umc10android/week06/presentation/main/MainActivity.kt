@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         // 1. NavHostFragment를 찾아 NavController를 가져오기
         val navHostFragment = supportFragmentManager
-            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+            .findFragmentById(R.id.main_nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
         // 2. NavController에 graph를 설정하면서 bundle을 함께 전달
