@@ -10,7 +10,7 @@ class ReqresRepository(
 
     suspend fun getUserById(userId: Int): Result<ReqresUserDto> {
         return try {
-            val response = service.getUserById(userId)
+            val response = service.getUser(userId)
 
             if (response.isSuccessful) {
                 val body = response.body()

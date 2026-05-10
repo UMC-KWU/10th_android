@@ -10,7 +10,7 @@ import retrofit2.http.Query
 interface ReqresService {
 
     @GET("api/users/{id}")
-    suspend fun getUserById(
+    suspend fun getUser(
         @Path("id") userId: Int
     ): Response<ReqresSingleUserResponse>
 
