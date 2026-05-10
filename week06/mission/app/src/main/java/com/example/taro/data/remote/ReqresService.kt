@@ -1,4 +1,4 @@
-package com.example.taro
+package com.example.taro.data.remote
 
 import com.example.taro.data.model.ReqresSingleUserResponse
 import com.example.taro.data.model.ReqresUserListResponse

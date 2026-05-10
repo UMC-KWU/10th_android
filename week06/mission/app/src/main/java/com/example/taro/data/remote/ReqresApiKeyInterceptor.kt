@@ -1,4 +1,4 @@
-package com.example.taro
+package com.example.taro.data.remote
 
 import okhttp3.Interceptor
 import okhttp3.Response
