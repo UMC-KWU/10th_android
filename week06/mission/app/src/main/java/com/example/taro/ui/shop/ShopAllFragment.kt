@@ -6,21 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.taro.ui.detail.ProductDetailActivity
-import com.example.taro.ui.shop.ShopProductAdapter
-import com.example.taro.data.local.ProductDataStore
 import com.example.taro.data.model.Product
 import com.example.taro.databinding.FragmentShopAllBinding
+import com.example.taro.ui.detail.ProductDetailActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class ShopAllFragment : Fragment() {
 
     private var _binding: FragmentShopAllBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: ShopAllViewModel by viewModels()
 
     private lateinit var shopAdapter: ShopProductAdapter
 
@@ -36,14 +39,17 @@ class ShopAllFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupShopRecyclerView()
+        collectUiState()
+    }
+
+    private fun setupShopRecyclerView() {
         shopAdapter = ShopProductAdapter(
             onItemClick = { product ->
                 moveToDetail(product)
             },
             onHeartClick = { product ->
-                viewLifecycleOwner.lifecycleScope.launch {
-                    ProductDataStore.toggleFavorite(requireContext(), product.id)
-                }
+                viewModel.toggleFavorite(product.id)
             }
         )
 
@@ -52,11 +58,13 @@ class ShopAllFragment : Fragment() {
             adapter = shopAdapter
             setHasFixedSize(true)
         }
+    }
 
+    private fun collectUiState() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                ProductDataStore.getShopProducts(requireContext()).collect { products ->
-                    shopAdapter.submitList(products)
+                viewModel.uiState.collect { state ->
+                    shopAdapter.submitList(state.products)
                 }
             }
         }
