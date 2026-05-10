@@ -7,13 +7,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.neouul.umc10android.week06.presentation.main.MainActivity
 import com.neouul.umc10android.week06.R
-import com.neouul.umc10android.week06.core.MyApplication
 import com.neouul.umc10android.week06.databinding.ActivitySplashBinding
+import com.neouul.umc10android.week06.domain.repository.ProductRepository
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
+
+    @Inject
+    lateinit var productRepository: ProductRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +28,6 @@ class SplashActivity : AppCompatActivity() {
 
         // 2초 뒤에 실행 (Coroutine 또는 Handler 사용)
         lifecycleScope.launch {
-            val productRepository = (application as MyApplication).container.productRepository
             productRepository.initializeDataIfNeeded()
             
             delay(2000) // 2초 대기

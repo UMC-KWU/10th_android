@@ -5,26 +5,28 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neouul.umc10android.week06.NavGraphDirections
 import com.neouul.umc10android.week06.R
-import com.neouul.umc10android.week06.core.MyApplication
 import com.neouul.umc10android.week06.core.hideLoading
 import com.neouul.umc10android.week06.core.showLoading
 import com.neouul.umc10android.week06.databinding.FragmentHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private var backPressedTime: Long = 0
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private val productRepository by lazy {
-        (requireActivity().application as MyApplication).container.productRepository
-    }
+    private val viewModel: HomeViewModel by viewModels()
 
     private lateinit var homeAdapter: HomeAdapter
     private val args: HomeFragmentArgs by navArgs()
@@ -38,7 +40,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         setupBackPressedCallback()
         setupRecyclerView()
-        observeProducts()
+        observeUiState()
     }
 
     private fun setupBackPressedCallback() {
@@ -66,13 +68,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.homeRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
     }
 
-    private fun observeProducts() {
+    private fun observeUiState() {
         viewLifecycleOwner.lifecycleScope.launch {
-            showLoading() // 로딩 시작
-            kotlinx.coroutines.delay(1000) // 1초 가상 지연
-            productRepository.getHomeProducts().collect { products ->
-                homeAdapter.updateList(products)
-                hideLoading() // 로딩 종료
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect { state ->
+                    homeAdapter.updateList(state.homeProducts)
+                    if (state.isLoading) showLoading() else hideLoading()
+                }
             }
         }
     }

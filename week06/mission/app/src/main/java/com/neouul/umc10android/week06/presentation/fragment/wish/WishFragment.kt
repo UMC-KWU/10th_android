@@ -3,23 +3,24 @@ package com.neouul.umc10android.week06.presentation.fragment.wish
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.neouul.umc10android.week06.NavGraphDirections
 import com.neouul.umc10android.week06.R
-import com.neouul.umc10android.week06.core.MyApplication
 import com.neouul.umc10android.week06.databinding.FragmentWishBinding
-import kotlinx.coroutines.flow.collectLatest
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class WishFragment : Fragment(R.layout.fragment_wish) {
     private var _binding: FragmentWishBinding? = null
     private val binding get() = _binding!!
 
-    private val wishRepository by lazy {
-        (requireActivity().application as MyApplication).container.wishRepository
-    }
+    private val viewModel: WishViewModel by viewModels()
 
     private lateinit var wishAdapter: WishAdapter
 
@@ -28,7 +29,7 @@ class WishFragment : Fragment(R.layout.fragment_wish) {
         _binding = FragmentWishBinding.bind(view)
 
         setupRecyclerView()
-        observeWishlist()
+        observeUiState()
     }
 
     private fun setupRecyclerView() {
@@ -43,10 +44,12 @@ class WishFragment : Fragment(R.layout.fragment_wish) {
         binding.wishRecyclerview.layoutManager = GridLayoutManager(requireContext(), 2)
     }
 
-    private fun observeWishlist() {
+    private fun observeUiState() {
         viewLifecycleOwner.lifecycleScope.launch {
-            wishRepository.getWishedProductsFlow().collectLatest { wishedProducts ->
-                wishAdapter.updateList(wishedProducts)
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect { state ->
+                    wishAdapter.updateList(state.wishedProducts)
+                }
             }
         }
     }

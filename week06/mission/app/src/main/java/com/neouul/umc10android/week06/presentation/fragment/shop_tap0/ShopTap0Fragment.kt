@@ -3,29 +3,27 @@ package com.neouul.umc10android.week06.presentation.fragment.shop_tap0
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.neouul.umc10android.week06.NavGraphDirections
 import com.neouul.umc10android.week06.R
-import com.neouul.umc10android.week06.core.MyApplication
 import com.neouul.umc10android.week06.databinding.FragmentShopTap0Binding
-import com.neouul.umc10android.week06.domain.model.Product
 import com.neouul.umc10android.week06.presentation.fragment.shop.ShopAdapter
-import kotlinx.coroutines.flow.collectLatest
+import com.neouul.umc10android.week06.presentation.fragment.shop.ShopViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class ShopTap0Fragment : Fragment(R.layout.fragment_shop_tap0) {
 
     private var _binding: FragmentShopTap0Binding? = null
     private val binding get() = _binding!!
 
-    private val productRepository by lazy {
-        (requireActivity().application as MyApplication).container.productRepository
-    }
-    private val wishRepository by lazy {
-        (requireActivity().application as MyApplication).container.wishRepository
-    }
+    private val viewModel: ShopViewModel by viewModels()
 
     private lateinit var shopAdapter: ShopAdapter
 
@@ -34,7 +32,7 @@ class ShopTap0Fragment : Fragment(R.layout.fragment_shop_tap0) {
         _binding = FragmentShopTap0Binding.bind(view)
 
         setupRecyclerView()
-        observeProducts()
+        observeUiState()
     }
 
     private fun setupRecyclerView() {
@@ -46,31 +44,19 @@ class ShopTap0Fragment : Fragment(R.layout.fragment_shop_tap0) {
                 requireActivity().findNavController(R.id.nav_host_fragment).navigate(action)
             },
             onWishClicked = { product ->
-                toggleWish(product)
+                viewModel.toggleWish(product)
             }
         )
         binding.shopRecyclerview.adapter = shopAdapter
         binding.shopRecyclerview.layoutManager = GridLayoutManager(requireContext(), 2)
     }
 
-    private fun observeProducts() {
+    private fun observeUiState() {
         viewLifecycleOwner.lifecycleScope.launch {
-            productRepository.getTotalProducts().collectLatest { products ->
-                shopAdapter.updateList(products)
-            }
-        }
-    }
-
-    private fun toggleWish(product: Product) {
-        val newWishState = !product.isWished
-        val updatedProduct = product.copy(isWished = newWishState)
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            productRepository.updateTotalProduct(updatedProduct)
-            if (newWishState) {
-                wishRepository.addWishedProduct(updatedProduct)
-            } else {
-                wishRepository.removeWishedProduct(updatedProduct)
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect { state ->
+                    shopAdapter.updateList(state.allProducts)
+                }
             }
         }
     }

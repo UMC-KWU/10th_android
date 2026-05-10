@@ -7,7 +7,9 @@ import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.tabs.TabLayout
 import com.neouul.umc10android.week06.R
 import com.neouul.umc10android.week06.databinding.FragmentShopBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ShopFragment : Fragment(R.layout.fragment_shop) {
 
     private var _binding: FragmentShopBinding? = null

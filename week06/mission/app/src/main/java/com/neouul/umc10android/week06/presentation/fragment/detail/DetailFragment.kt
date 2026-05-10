@@ -4,93 +4,71 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.neouul.umc10android.week06.R
-import com.neouul.umc10android.week06.core.MyApplication
 import com.neouul.umc10android.week06.core.hideLoading
 import com.neouul.umc10android.week06.core.showLoading
 import com.neouul.umc10android.week06.databinding.FragmentDetailBinding
-import com.neouul.umc10android.week06.domain.model.Product
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.first
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class DetailFragment : Fragment(R.layout.fragment_detail) {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
 
     private val args: DetailFragmentArgs by navArgs()
-    private var currentProduct: Product? = null
-
-    private val productRepository by lazy {
-        (requireActivity().application as MyApplication).container.productRepository
-    }
-    private val wishRepository by lazy {
-        (requireActivity().application as MyApplication).container.wishRepository
-    }
+    private val viewModel: DetailViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentDetailBinding.bind(view)
 
         val productId = args.productId
-        loadProduct(productId)
+        viewModel.loadProduct(productId)
 
         binding.btnBack.setOnClickListener {
             findNavController().popBackStack()
         }
 
         binding.btnWishlist.setOnClickListener {
-            toggleWish()
+            viewModel.toggleWish()
         }
+
+        observeUiState()
     }
 
-    private fun loadProduct(productId: Long) {
+    private fun observeUiState() {
         viewLifecycleOwner.lifecycleScope.launch {
-            showLoading()
-            delay(500)
-            val products = productRepository.getTotalProducts().first()
-            currentProduct = products.find { it.id == productId }
-            
-            currentProduct?.let { product ->
-                binding.tvTopTitle.text = product.name
-                binding.tvName.text = product.name
-                binding.tvCategory.text = product.category
-                binding.tvPrice.text = product.price
-                binding.tvDescription.text = product.detailDescription.ifEmpty { product.description }
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch {
+                    viewModel.uiState.collect { state ->
+                        state.product?.let {
+                            binding.tvTopTitle.text = it.name
+                            binding.tvName.text = it.name
+                            binding.tvCategory.text = it.category
+                            binding.tvPrice.text = it.price
+                            binding.tvDescription.text = it.detailDescription.ifEmpty { it.description }
+                            updateWishButtonState(it.isWished)
+                        }
+                        if (state.isLoading) showLoading() else hideLoading()
+                    }
+                }
+                launch {
+                    viewModel.wishEvent.collect { message ->
+                        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
-            
-            updateWishButtonState()
-            hideLoading()
         }
     }
 
-    private fun toggleWish() {
-        val product = currentProduct ?: return
-        val newWishState = !product.isWished
-        val updatedProduct = product.copy(isWished = newWishState)
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            showLoading()
-            delay(500)
-            productRepository.updateTotalProduct(updatedProduct)
-            if (newWishState) {
-                wishRepository.addWishedProduct(updatedProduct)
-                Toast.makeText(requireContext(), "위시리스트에 추가되었습니다.", Toast.LENGTH_SHORT).show()
-            } else {
-                wishRepository.removeWishedProduct(updatedProduct)
-                Toast.makeText(requireContext(), "위시리스트에서 제거되었습니다.", Toast.LENGTH_SHORT).show()
-            }
-            currentProduct = updatedProduct
-            updateWishButtonState()
-            hideLoading()
-        }
-    }
-
-    private fun updateWishButtonState() {
-        val isWished = currentProduct?.isWished ?: false
+    private fun updateWishButtonState(isWished: Boolean) {
         if (isWished) {
             binding.btnWishlist.text = "위시리스트 삭제"
             binding.btnWishlist.setIconResource(R.drawable.ic_heart_full)
