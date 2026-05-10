@@ -6,21 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.taro.ui.detail.ProductDetailActivity
-import com.example.taro.ui.wishlist.WishlistProductAdapter
-import com.example.taro.data.local.ProductDataStore
 import com.example.taro.data.model.Product
 import com.example.taro.databinding.FragmentWishlistBinding
+import com.example.taro.ui.detail.ProductDetailActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class WishlistFragment : Fragment() {
 
     private var _binding: FragmentWishlistBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: WishlistViewModel by viewModels()
 
     private lateinit var wishlistAdapter: WishlistProductAdapter
 
@@ -36,6 +39,11 @@ class WishlistFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupWishlistRecyclerView()
+        collectUiState()
+    }
+
+    private fun setupWishlistRecyclerView() {
         wishlistAdapter = WishlistProductAdapter { product ->
             moveToDetail(product)
         }
@@ -45,11 +53,13 @@ class WishlistFragment : Fragment() {
             adapter = wishlistAdapter
             setHasFixedSize(true)
         }
+    }
 
+    private fun collectUiState() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                ProductDataStore.getWishlistProducts(requireContext()).collect { products ->
-                    wishlistAdapter.submitList(products)
+                viewModel.uiState.collect { state ->
+                    wishlistAdapter.submitList(state.products)
                 }
             }
         }
