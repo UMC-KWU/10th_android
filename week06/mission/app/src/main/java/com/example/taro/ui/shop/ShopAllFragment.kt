@@ -1,4 +1,4 @@
-package com.example.taro
+package com.example.taro.ui.shop
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,11 +10,12 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.taro.ui.detail.ProductDetailActivity
+import com.example.taro.ui.shop.ShopProductAdapter
 import com.example.taro.data.local.ProductDataStore
 import com.example.taro.data.model.Product
 import com.example.taro.databinding.FragmentShopAllBinding
 import kotlinx.coroutines.launch
-
 
 class ShopAllFragment : Fragment() {
 

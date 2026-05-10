@@ -1,11 +1,10 @@
-package com.example.taro
+package com.example.taro.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taro.data.model.Product
 import com.example.taro.databinding.ItemHomeProductBinding
-
 
 class HomeProductAdapter(
     private val onItemClick: (Product) -> Unit

@@ -1,4 +1,4 @@
-package com.example.taro
+package com.example.taro.ui.detail
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

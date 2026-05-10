@@ -1,4 +1,4 @@
-package com.example.taro
+package com.example.taro.ui.shop
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.taro.R
+import com.example.taro.ui.shop.ShopSaleFragment
+import com.example.taro.ui.shop.ShopTopsFragment
 import com.example.taro.databinding.FragmentShopBinding
 
 class ShopFragment : Fragment() {

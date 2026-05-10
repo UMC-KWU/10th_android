@@ -1,4 +1,4 @@
-package com.example.taro
+package com.example.taro.ui.wishlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

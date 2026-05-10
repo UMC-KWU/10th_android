@@ -1,12 +1,12 @@
-package com.example.taro
+package com.example.taro.ui.shop
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import com.example.taro.R
 import com.example.taro.data.model.Product
 import com.example.taro.databinding.ItemShopProductBinding
-
 
 class ShopProductAdapter(
     private val onItemClick: (Product) -> Unit,

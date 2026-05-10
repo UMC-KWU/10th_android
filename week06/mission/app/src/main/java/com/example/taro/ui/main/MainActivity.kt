@@ -1,9 +1,15 @@
-package com.example.taro
+package com.example.taro.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.example.taro.ui.cart.CartFragment
+import com.example.taro.ui.home.HomeFragment
+import com.example.taro.ui.profile.ProfileFragment
+import com.example.taro.R
+import com.example.taro.ui.shop.ShopFragment
+import com.example.taro.ui.wishlist.WishlistFragment
 import com.example.taro.data.local.ProductDataStore
 import com.example.taro.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint

@@ -1,11 +1,13 @@
-package com.example.taro
+package com.example.taro.ui.cart
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.taro.R
 import com.example.taro.databinding.FragmentCartBinding
+import com.example.taro.ui.main.MainActivity
 
 class CartFragment : Fragment() {
 
