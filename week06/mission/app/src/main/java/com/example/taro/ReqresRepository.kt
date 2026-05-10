@@ -1,5 +1,7 @@
 package com.example.taro
 
+import com.example.taro.data.model.ReqresUserDto
+
 class ReqresRepository(
     private val service: ReqresService = ReqresApiClient.reqresService
 ) {

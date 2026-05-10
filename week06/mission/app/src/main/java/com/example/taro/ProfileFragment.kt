@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.example.week03_taro.databinding.FragmentProfileBinding
+import com.example.taro.databinding.FragmentProfileBinding
 import kotlinx.coroutines.launch
 
 class ProfileFragment : Fragment() {

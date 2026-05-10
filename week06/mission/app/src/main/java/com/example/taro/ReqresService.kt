@@ -1,5 +1,7 @@
 package com.example.taro
 
+import com.example.taro.data.model.ReqresSingleUserResponse
+import com.example.taro.data.model.ReqresUserListResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

@@ -10,8 +10,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.taro.data.model.Product
 import com.example.taro.databinding.FragmentHomeBinding
 import kotlinx.coroutines.launch
+
 
 class HomeFragment : Fragment() {
 

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.example.week03_taro.databinding.FragmentShopBinding
+import com.example.taro.databinding.FragmentShopBinding
 
 class ShopFragment : Fragment() {
 

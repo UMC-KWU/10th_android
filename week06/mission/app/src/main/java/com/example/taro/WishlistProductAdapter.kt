@@ -4,7 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.example.week03_taro.databinding.ItemWishlistProductBinding
+import com.example.taro.data.model.Product
+import com.example.taro.databinding.ItemWishlistProductBinding
 
 class WishlistProductAdapter(
     private val onItemClick: (Product) -> Unit

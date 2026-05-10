@@ -2,7 +2,7 @@ package com.example.taro
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.week03_taro.databinding.ActivityProductDetailBinding
+import com.example.taro.databinding.ActivityProductDetailBinding
 
 class ProductDetailActivity : AppCompatActivity() {
 

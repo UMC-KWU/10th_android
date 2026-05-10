@@ -1,4 +1,4 @@
-package com.example.taro
+package com.example.taro.data.model
 
 import com.google.gson.annotations.SerializedName
 

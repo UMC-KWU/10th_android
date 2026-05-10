@@ -10,7 +10,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.week03_taro.databinding.FragmentWishlistBinding
+import com.example.taro.data.model.Product
+import com.example.taro.databinding.FragmentWishlistBinding
 import kotlinx.coroutines.launch
 
 class WishlistFragment : Fragment() {
