@@ -58,7 +58,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation("androidx.datastore:datastore-preferences:1.1.1")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
@@ -80,6 +79,7 @@ dependencies {
     // 이미지 URL 로딩
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
+    implementation("androidx.fragment:fragment-ktx:1.7.1")
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)

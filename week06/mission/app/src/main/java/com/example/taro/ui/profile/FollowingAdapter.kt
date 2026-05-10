@@ -9,16 +9,16 @@ import com.example.taro.databinding.ItemFollowingBinding
 
 class FollowingAdapter : RecyclerView.Adapter<FollowingAdapter.FollowingViewHolder>() {
 
-    private val userList = mutableListOf<ReqresUserDto>()
+    private val users = mutableListOf<ReqresUserDto>()
 
     inner class FollowingViewHolder(
         private val binding: ItemFollowingBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(user: ReqresUserDto) {
-            Glide.with(binding.ivFollowingAvatar)
+            Glide.with(binding.ivFollowingAvatar.context)
                 .load(user.avatar)
-                .centerCrop()
+                .circleCrop()
                 .into(binding.ivFollowingAvatar)
         }
     }
@@ -33,14 +33,14 @@ class FollowingAdapter : RecyclerView.Adapter<FollowingAdapter.FollowingViewHold
     }
 
     override fun onBindViewHolder(holder: FollowingViewHolder, position: Int) {
-        holder.bind(userList[position])
+        holder.bind(users[position])
     }
 
-    override fun getItemCount(): Int = userList.size
+    override fun getItemCount(): Int = users.size
 
-    fun submitList(newList: List<ReqresUserDto>) {
-        userList.clear()
-        userList.addAll(newList)
+    fun submitList(newUsers: List<ReqresUserDto>) {
+        users.clear()
+        users.addAll(newUsers)
         notifyDataSetChanged()
     }
 }

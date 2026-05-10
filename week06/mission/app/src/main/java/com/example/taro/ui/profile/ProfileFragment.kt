@@ -1,29 +1,31 @@
 package com.example.taro.ui.profile
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.example.taro.ui.profile.FollowingAdapter
-import com.example.taro.R
-import com.example.taro.ReqresRepository
+import com.example.taro.data.model.ReqresUserDto
 import com.example.taro.databinding.FragmentProfileBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var followingAdapter: FollowingAdapter
+    private val viewModel: ProfileViewModel by viewModels()
 
-    private val reqresRepository = ReqresRepository()
+    private lateinit var followingAdapter: FollowingAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,12 +39,11 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initFollowingRecyclerView()
-        loadProfileUser()
-        loadFollowingUsers()
+        setupFollowingRecyclerView()
+        collectUiState()
     }
 
-    private fun initFollowingRecyclerView() {
+    private fun setupFollowingRecyclerView() {
         followingAdapter = FollowingAdapter()
 
         binding.rvFollowing.apply {
@@ -56,58 +57,42 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun loadProfileUser() {
+    private fun collectUiState() {
         viewLifecycleOwner.lifecycleScope.launch {
-            val result = reqresRepository.getUserById(USER_ID)
-
-            result.onSuccess { user ->
-                binding.tvProfileNickname.text = user.fullName
-
-                Glide.with(binding.ivProfileAvatar)
-                    .load(user.avatar)
-                    .circleCrop()
-                    .placeholder(R.drawable.bg_circle_gray)
-                    .error(R.drawable.bg_circle_gray)
-                    .into(binding.ivProfileAvatar)
-
-                Log.d("ProfileFragment", "프로필 유저 조회 성공: ${user.fullName}")
-            }.onFailure { error ->
-                Log.d("ProfileFragment", "프로필 유저 조회 실패: ${error.message}")
-                Toast.makeText(
-                    requireContext(),
-                    "프로필 정보를 불러오지 못했습니다.",
-                    Toast.LENGTH_SHORT
-                ).show()
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect { state ->
+                    renderProfileUser(state.profileUser)
+                    renderFollowingUsers(state.followingUsers)
+                    renderErrorMessage(state.errorMessage)
+                }
             }
         }
     }
 
-    private fun loadFollowingUsers() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            val result = reqresRepository.getUsers(page = 1)
+    private fun renderProfileUser(profileUser: ReqresUserDto?) {
+        if (profileUser == null) return
 
-            result.onSuccess { users ->
-                followingAdapter.submitList(users)
-                binding.tvFollowingTitle.text = "팔로잉 (${users.size})"
+        binding.tvProfileNickname.text = "${profileUser.firstName} ${profileUser.lastName}"
 
-                Log.d("ProfileFragment", "팔로잉 리스트 조회 성공: ${users.size}명")
-            }.onFailure { error ->
-                Log.d("ProfileFragment", "팔로잉 리스트 조회 실패: ${error.message}")
-                Toast.makeText(
-                    requireContext(),
-                    "팔로잉 목록을 불러오지 못했습니다.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
+        Glide.with(this)
+            .load(profileUser.avatar)
+            .circleCrop()
+            .into(binding.ivProfileAvatar)
+    }
+
+    private fun renderFollowingUsers(followingUsers: List<ReqresUserDto>) {
+        followingAdapter.submitList(followingUsers)
+    }
+
+    private fun renderErrorMessage(errorMessage: String?) {
+        if (errorMessage.isNullOrBlank()) return
+
+        Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
+        viewModel.clearErrorMessage()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    companion object {
-        private const val USER_ID = 1
     }
 }
