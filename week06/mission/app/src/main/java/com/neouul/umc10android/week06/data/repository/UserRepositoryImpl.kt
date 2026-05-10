@@ -4,8 +4,9 @@ import android.util.Log
 import com.neouul.umc10android.week06.data.data_source.UserDataSource
 import com.neouul.umc10android.week06.domain.model.User
 import com.neouul.umc10android.week06.domain.repository.UserRepository
+import javax.inject.Inject
 
-class UserRepositoryImpl(
+class UserRepositoryImpl @Inject constructor(
     private val userDataSource: UserDataSource
 ) : UserRepository {
 

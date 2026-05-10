@@ -8,8 +8,9 @@ import com.neouul.umc10android.week06.domain.repository.ProductRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class ProductRepositoryImpl(
+class ProductRepositoryImpl @Inject constructor(
     private val productDataSource: ProductDataSource,
     private val gson: Gson,
 ) : ProductRepository {

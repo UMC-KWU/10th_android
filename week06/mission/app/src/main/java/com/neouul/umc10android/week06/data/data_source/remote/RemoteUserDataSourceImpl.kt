@@ -5,8 +5,9 @@ import com.neouul.umc10android.week06.data.data_source.remote.api.ReqResService
 import com.neouul.umc10android.week06.data.dto.UserData
 import com.neouul.umc10android.week06.data.dto.UserDto
 import retrofit2.Response
+import javax.inject.Inject
 
-class RemoteUserDataSourceImpl(
+class RemoteUserDataSourceImpl @Inject constructor(
     private val service: ReqResService
 ) : UserDataSource {
     override suspend fun getUsers(page: Int, token: String): Response<UserData<List<UserDto>>> {

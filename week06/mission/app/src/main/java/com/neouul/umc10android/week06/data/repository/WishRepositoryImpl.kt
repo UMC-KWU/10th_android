@@ -8,8 +8,9 @@ import com.neouul.umc10android.week06.domain.repository.WishRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class WishRepositoryImpl(
+class WishRepositoryImpl @Inject constructor(
     private val productDataSource: ProductDataSource,
     private val gson: Gson,
 ) : WishRepository {
