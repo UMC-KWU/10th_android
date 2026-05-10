@@ -75,9 +75,11 @@ dependencies {
 
     // Lifecycle
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
 
     // 이미지 URL 로딩
     implementation("com.github.bumptech.glide:glide:4.16.0")
+
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
