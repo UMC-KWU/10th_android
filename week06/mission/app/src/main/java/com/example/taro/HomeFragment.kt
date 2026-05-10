@@ -10,7 +10,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.week03_taro.databinding.FragmentHomeBinding
+import com.example.taro.databinding.FragmentHomeBinding
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {

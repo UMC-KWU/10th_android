@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.week03_taro.databinding.FragmentCartBinding
+import com.example.taro.databinding.FragmentCartBinding
 
 class CartFragment : Fragment() {
 

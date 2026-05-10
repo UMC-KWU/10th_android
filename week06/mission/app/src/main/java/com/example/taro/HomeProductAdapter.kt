@@ -3,7 +3,7 @@ package com.example.taro
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.week03_taro.databinding.ItemHomeProductBinding
+import com.example.taro.databinding.ItemHomeProductBinding
 
 class HomeProductAdapter(
     private val onItemClick: (Product) -> Unit
