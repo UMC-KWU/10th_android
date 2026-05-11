@@ -1,0 +1,21 @@
+package com.example.taro.data.remote
+
+import com.example.taro.data.model.ReqresSingleUserResponse
+import com.example.taro.data.model.ReqresUserListResponse
+import retrofit2.Response
+import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
+
+interface ReqresService {
+
+    @GET("api/users/{id}")
+    suspend fun getUser(
+        @Path("id") userId: Int
+    ): Response<ReqresSingleUserResponse>
+
+    @GET("api/users")
+    suspend fun getUsers(
+        @Query("page") page: Int = 1
+    ): Response<ReqresUserListResponse>
+}
