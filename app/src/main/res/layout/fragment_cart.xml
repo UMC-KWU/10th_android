@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".CartFragment">
+    tools:context=".ui.cart.CartFragment">
 
     <LinearLayout
         android:id="@+id/ll_cart_empty_content"

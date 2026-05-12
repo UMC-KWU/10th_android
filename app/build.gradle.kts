@@ -1,23 +1,23 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android) // 반드시 추가되어야 합니다
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.example.umc_10th_android_paul_week02"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    namespace = "com.example.umc_10th_android_paul_week04"
+    compileSdk  = 35
 
     viewBinding {
         enable = true
     }
 
     defaultConfig {
-        applicationId = "com.example.umc_10th_android_paul_week02"
+        applicationId = "com.example.umc_10th_android_paul_week04"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -51,4 +51,20 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.0.0")
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+    debugImplementation(libs.androidx.compose.ui.tooling)
+    debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.fragment.ktx)
 }

@@ -1,12 +1,6 @@
 pluginManagement {
     repositories {
-        google {
-            content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
-            }
-        }
+        google ()
         mavenCentral()
         gradlePluginPortal()
     }
@@ -22,6 +16,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "UMC_10th_Android_Paul_week02"
+rootProject.name = "UMC_10th_Android_Paul_week04"
 include(":app")
  
