@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+
+    // Optional, provides the @Serialize annotation for autogeneration of Serializers.
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -57,4 +60,16 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    // Navigation
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
+
+    // Coil : Kotlin 코루틴에서 지원하는 이미지 로드 라이브러리(Instacart)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+
+    // 컴포즈 전용 ViewModel
+//    implementation("androidx.lifecycle:lifecycle-viewmodel-compose-android:2.10.0")
+
 }
