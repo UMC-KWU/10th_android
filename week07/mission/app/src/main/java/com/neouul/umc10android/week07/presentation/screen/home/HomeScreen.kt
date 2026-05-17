@@ -25,12 +25,13 @@ import com.neouul.umc10android.week07.domain.model.Product
 import com.neouul.umc10android.week07.presentation.component.NewProductItem
 import com.neouul.umc10android.week07.ui.AppColors
 import com.neouul.umc10android.week07.ui.AppTextStyles
+import androidx.compose.foundation.ScrollState
 
 @Composable
 fun HomeScreen(
-
+    title: String,
+    scrollState: ScrollState = rememberScrollState()
 ) {
-    val scrollState = rememberScrollState()
 
     Column(
         modifier = Modifier
@@ -51,7 +52,7 @@ fun HomeScreen(
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "Discover",
+                    text = title,
                     style = AppTextStyles.titleTextMedium,
                     modifier = Modifier.fillMaxWidth()
                 )
@@ -122,5 +123,5 @@ fun HomeScreen(
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen()
+    HomeScreen(title = "Discover")
 }
