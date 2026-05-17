@@ -1,5 +1,6 @@
 package com.neouul.umc10android.week07.presentation.screen.main
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -33,7 +34,7 @@ fun MainScreen(
     }
 
     Scaffold(
-        modifier = modifier,
+        modifier = modifier.fillMaxSize(),
         bottomBar = {
             // MainGraph 내부에 있을 때만 하단바 노출
             if (isInMainGraph) {

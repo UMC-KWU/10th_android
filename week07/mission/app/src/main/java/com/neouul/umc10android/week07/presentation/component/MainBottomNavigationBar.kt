@@ -1,9 +1,11 @@
 package com.neouul.umc10android.week07.presentation.component
 
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarDefaults
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
@@ -50,7 +52,8 @@ fun MainBottomNavigationBar(
         tonalElevation = 0.dp, // Indicator 배경 효과를 제거하고 싶을 때 사용
         modifier = modifier
             .fillMaxWidth()
-            .height(61.dp)
+            .heightIn(61.dp)
+            .windowInsetsPadding(NavigationBarDefaults.windowInsets)
             .dropShadow(
                 shape = RectangleShape,
                 shadow = Shadow(
