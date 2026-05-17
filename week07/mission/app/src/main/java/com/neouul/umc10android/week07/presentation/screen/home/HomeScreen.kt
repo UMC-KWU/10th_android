@@ -25,12 +25,12 @@ import com.neouul.umc10android.week07.domain.model.Product
 import com.neouul.umc10android.week07.presentation.component.NewProductItem
 import com.neouul.umc10android.week07.ui.AppColors
 import com.neouul.umc10android.week07.ui.AppTextStyles
+import androidx.compose.foundation.ScrollState
 
 @Composable
 fun HomeScreen(
-
+    scrollState: ScrollState = rememberScrollState()
 ) {
-    val scrollState = rememberScrollState()
 
     Column(
         modifier = Modifier

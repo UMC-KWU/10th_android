@@ -11,7 +11,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
 import com.neouul.umc10android.week07.data.data_source.local.DummyDataSource
 import com.neouul.umc10android.week07.presentation.screen.cart.CartScreen
-import com.neouul.umc10android.week07.presentation.screen.home.HomeScreen
+import com.neouul.umc10android.week07.presentation.screen.home.HomeRoot
 import com.neouul.umc10android.week07.presentation.screen.main.MainScreen
 import com.neouul.umc10android.week07.presentation.screen.profiie.ProfileScreen
 import com.neouul.umc10android.week07.presentation.screen.shop.ShopScreen
@@ -63,7 +63,7 @@ fun NavigationRoot(
                     ) {
                         navigation<Route.MainGraph>(startDestination = Route.Home) {
                             composable<Route.Home> {
-                                HomeScreen()
+                                HomeRoot()
                             }
                             composable<Route.Shop> {
                                 ShopScreen()
