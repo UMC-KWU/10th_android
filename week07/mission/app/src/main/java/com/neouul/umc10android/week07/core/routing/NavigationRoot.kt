@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
+import com.neouul.umc10android.week07.data.data_source.local.DummyDataSource
 import com.neouul.umc10android.week07.presentation.screen.cart.CartScreen
 import com.neouul.umc10android.week07.presentation.screen.home.HomeScreen
 import com.neouul.umc10android.week07.presentation.screen.main.MainScreen
@@ -20,10 +21,6 @@ import com.neouul.umc10android.week07.presentation.screen.wish.WishScreen
 fun NavigationRoot(
     navController: NavHostController = rememberNavController(),
 ) {
-    // 현재 경로 확인을 위한 상태
-//    val navBackStackEntry by navController.currentBackStackEntryAsState()
-//    val currentDestination = navBackStackEntry?.destination
-
     NavHost(
         navController = navController,
         startDestination = Route.Main,
@@ -46,7 +43,7 @@ fun NavigationRoot(
             // 공통 네비게이션 로직
             val onTabClick: (Route) -> Unit = { route ->
                 mainNavController.navigate(route) {
-                    popUpTo(navController.graph.findStartDestination().id) {
+                    popUpTo(mainNavController.graph.findStartDestination().id) {
                         saveState = true
                     }
                     launchSingleTop = true
@@ -72,7 +69,7 @@ fun NavigationRoot(
                                 ShopScreen()
                             }
                             composable<Route.Wish> {
-                                WishScreen()
+                                WishScreen(products = DummyDataSource.dummyWishProducts)
                             }
                             composable<Route.Cart> {
                                 CartScreen()
