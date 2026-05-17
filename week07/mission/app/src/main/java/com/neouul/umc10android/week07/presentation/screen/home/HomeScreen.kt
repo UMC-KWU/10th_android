@@ -1,6 +1,7 @@
 package com.neouul.umc10android.week07.presentation.screen.home
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -19,7 +20,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.neouul.umc10android.week07.R
 import com.neouul.umc10android.week07.domain.model.Product
 import com.neouul.umc10android.week07.presentation.component.NewProductItem
@@ -27,12 +27,15 @@ import com.neouul.umc10android.week07.ui.AppColors
 import com.neouul.umc10android.week07.ui.AppTextStyles
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+
+) {
     val scrollState = rememberScrollState()
 
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(AppColors.white)
             .padding(horizontal = 17.dp)
             .verticalScroll(scrollState) // 스크롤 가능하게 설정
     ) {
