@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/10th_android.iml" filepath="$PROJECT_DIR$/.idea/10th_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/UMC_Week07.iml" filepath="$PROJECT_DIR$/.idea/modules/UMC_Week07.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/UMC_Week07.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/UMC_Week07.app.unitTest.iml" />
     </modules>
   </component>
 </project>
