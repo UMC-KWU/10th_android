@@ -36,58 +36,61 @@ fun HomeScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(AppColors.white)
-            .padding(horizontal = 17.dp)
             .verticalScroll(scrollState) // 스크롤 가능하게 설정
     ) {
-        // 텍스트 영역 (text_area)
+        // 패딩 설정
         Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(160.dp)
-                .padding(horizontal = 24.dp, vertical = 50.dp),
-            verticalArrangement = Arrangement.Center
+            modifier = Modifier.padding(horizontal = 17.dp)
         ) {
-            Text(
-                text = "Discover",
-                style = AppTextStyles.titleTextMedium,
-                modifier = Modifier.fillMaxWidth()
+            // 텍스트 영역 (text_area)
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(160.dp)
+                    .padding(horizontal = 24.dp, vertical = 50.dp),
+                verticalArrangement = Arrangement.Center
+            ) {
+                Text(
+                    text = "Discover",
+                    style = AppTextStyles.titleTextMedium,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Text(
+                    text = "9월 4일 목요일",
+                    color = AppColors.gray1,
+                    style = AppTextStyles.largeTextRegular,
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
+
+            // 이미지 영역
+            Image(
+                painter = painterResource(id = R.drawable.home_logo),
+                contentDescription = "Home Logo",
+                modifier = Modifier.fillMaxWidth(),
+                contentScale = ContentScale.Crop
             )
-            Text(
-                text = "9월 4일 목요일",
-                color = AppColors.gray1,
-                style = AppTextStyles.largeTextRegular,
-                modifier = Modifier.fillMaxWidth()
-            )
+
+            // What's new 섹션
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 24.dp)
+            ) {
+                Text(
+                    text = "What’s new",
+                    style = AppTextStyles.headerTextMedium,
+                    modifier = Modifier.padding(top = 40.dp)
+                )
+                Text(
+                    text = "나이키 최신 상품",
+                    style = AppTextStyles.titleTextMedium,
+                    color = AppColors.gray1,
+                    modifier = Modifier.padding(top = 12.dp, bottom = 22.dp)
+                )
+            }
         }
 
-        // 이미지 영역
-        Image(
-            painter = painterResource(id = R.drawable.home_logo),
-            contentDescription = "Home Logo",
-            modifier = Modifier.fillMaxWidth(),
-            contentScale = ContentScale.Crop
-        )
-
-        // What's new 섹션
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 24.dp)
-        ) {
-            Text(
-                text = "What’s new",
-                style = AppTextStyles.headerTextMedium,
-                modifier = Modifier.padding(top = 40.dp)
-            )
-            Text(
-                text = "나이키 최신 상품",
-                style = AppTextStyles.titleTextMedium,
-                color = AppColors.gray1,
-                modifier = Modifier.padding(vertical = 12.dp)
-            )
-        }
-
-        // 가로 RecyclerView를 대체하는 LazyRow
         LazyRow(
             modifier = Modifier
                 .fillMaxWidth()
@@ -95,7 +98,7 @@ fun HomeScreen(
             horizontalArrangement = Arrangement.spacedBy(6.dp),
         ) {
             item {
-                Spacer(Modifier.width(18.dp))
+                Spacer(Modifier.width(35.dp))
             }
 
             items(5) { index ->
@@ -110,7 +113,7 @@ fun HomeScreen(
             }
 
             item {
-                Spacer(Modifier.width(18.dp))
+                Spacer(Modifier.width(35.dp))
             }
         }
     }
