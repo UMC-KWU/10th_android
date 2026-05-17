@@ -25,12 +25,12 @@ fun MainScreen(
 
     // 현재 탭 경로 확인 (하단바 선택 상태 표시용)
     val currentTab = when {
-        currentDestination?.hasRoute<Route.Home>() == true -> Route.Home
+        currentDestination?.hasRoute<Route.Home>() == true -> Route.Home("")
         currentDestination?.hasRoute<Route.Shop>() == true -> Route.Shop
         currentDestination?.hasRoute<Route.Wish>() == true -> Route.Wish
         currentDestination?.hasRoute<Route.Cart>() == true -> Route.Cart
         currentDestination?.hasRoute<Route.Profile>() == true -> Route.Profile
-        else -> Route.Home
+        else -> Route.Home("")
     }
 
     Scaffold(

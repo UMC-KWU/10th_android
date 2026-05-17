@@ -31,7 +31,7 @@ fun MainBottomNavigationBar(
     onTabClick: (Route) -> Unit,
 ) {
     val items = listOf(
-        NavigationItem("홈", R.drawable.ic_house_simple, Route.Home),
+        NavigationItem("홈", R.drawable.ic_house_simple, Route.Home("")),
         NavigationItem("구매하기", R.drawable.ic_list_magnifying_glass, Route.Shop),
         NavigationItem("위시리스트", R.drawable.ic_heart_straight, Route.Wish),
         NavigationItem("장바구니", R.drawable.ic_bag_simple, Route.Cart),
@@ -65,7 +65,7 @@ fun MainBottomNavigationBar(
             )
     ) {
         items.forEach { item ->
-            val isSelected = currentRoute == item.route
+            val isSelected = currentRoute::class == item.route::class
 
             NavigationBarItem(
                 selected = isSelected,

@@ -20,10 +20,10 @@ sealed interface Route {
 
 
     @Serializable
-    data object Main : Route
+    data class Main(val title: String) : Route
 
     @Serializable
-    data object Home : Route
+    data class Home(val title: String) : Route
 
     @Serializable
     data object Shop : Route

@@ -16,6 +16,9 @@ import com.neouul.umc10android.week07.presentation.screen.main.MainScreen
 import com.neouul.umc10android.week07.presentation.screen.profiie.ProfileScreen
 import com.neouul.umc10android.week07.presentation.screen.shop.ShopScreen
 import com.neouul.umc10android.week07.presentation.screen.wish.WishScreen
+import androidx.navigation.toRoute
+
+import com.neouul.umc10android.week07.presentation.screen.splash.SplashRoot
 
 @Composable
 fun NavigationRoot(
@@ -23,10 +26,16 @@ fun NavigationRoot(
 ) {
     NavHost(
         navController = navController,
-        startDestination = Route.Main,
+        startDestination = Route.Splash,
     ) {
         composable<Route.Splash> {
-            // SplashScreen()
+            SplashRoot(
+                onNavigateToMain = { title ->
+                    navController.navigate(Route.Main(title = title)) {
+                        popUpTo(Route.Splash) { inclusive = true }
+                    }
+                }
+            )
         }
         composable<Route.SignIn> {
             // SignInScreen()
@@ -34,7 +43,10 @@ fun NavigationRoot(
         composable<Route.SignUp> {
             // SignUpScreen()
         }
-        composable<Route.Main> {
+        composable<Route.Main> { backStackEntry ->
+            val mainRoute: Route.Main = backStackEntry.toRoute()
+            val passedTitle = mainRoute.title
+
             // MainScreen 내부 탭 전용의 새로운 NavController
             val mainNavController = rememberNavController()
             val mainNavBackStackEntry by mainNavController.currentBackStackEntryAsState()
@@ -61,9 +73,12 @@ fun NavigationRoot(
                         startDestination = Route.MainGraph,
                         modifier = safeModifier
                     ) {
-                        navigation<Route.MainGraph>(startDestination = Route.Home) {
-                            composable<Route.Home> {
-                                HomeRoot()
+                        navigation<Route.MainGraph>(
+                            startDestination = Route.Home(title = passedTitle)
+                        ) {
+                            composable<Route.Home> { backStackEntry ->
+                                val homeRoute: Route.Home = backStackEntry.toRoute()
+                                HomeRoot(title = homeRoute.title)
                             }
                             composable<Route.Shop> {
                                 ShopScreen()

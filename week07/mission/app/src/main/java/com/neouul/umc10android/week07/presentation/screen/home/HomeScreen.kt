@@ -29,6 +29,7 @@ import androidx.compose.foundation.ScrollState
 
 @Composable
 fun HomeScreen(
+    title: String,
     scrollState: ScrollState = rememberScrollState()
 ) {
 
@@ -51,7 +52,7 @@ fun HomeScreen(
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "Discover",
+                    text = title,
                     style = AppTextStyles.titleTextMedium,
                     modifier = Modifier.fillMaxWidth()
                 )
@@ -122,5 +123,5 @@ fun HomeScreen(
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen()
+    HomeScreen(title = "Discover")
 }
