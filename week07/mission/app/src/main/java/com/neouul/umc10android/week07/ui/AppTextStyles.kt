@@ -15,6 +15,13 @@ object AppTextStyles {
         letterSpacing = (-0.02).em,
     )
 
+    val smallTextBold = TextStyle(
+        fontFamily = AppFonts.NotoSans,
+        fontWeight = FontWeight.Bold,
+        fontSize = 10.sp,
+        letterSpacing = (-0.02).em,
+    )
+
     // 14px
     val mediumTextMedium = TextStyle(
         fontFamily = AppFonts.NotoSans,
