@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.UMC_10th_Android_Paul_week02" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">#FFFFFF</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Theme.UMC_10th_Android_Paul_week02" parent="Base.Theme.UMC_10th_Android_Paul_week02" />
+
+    <style name="BottomNavText_Active" parent="Widget.Design.BottomNavigationView">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="BottomNavText_Inactive" parent="Widget.Design.BottomNavigationView">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+</resources>
