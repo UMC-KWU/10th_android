@@ -28,10 +28,10 @@ fun CommonButton(
     icon: Int? = null,
     modifier: Modifier = Modifier,
     isOutlined: Boolean = false,
-    onOrderClick: () -> Unit = {},
+    onClick: () -> Unit = {},
 ) {
     Button(
-        onClick = onOrderClick,
+        onClick = onClick,
         colors = ButtonDefaults.buttonColors(
             containerColor = if (isOutlined) AppColors.white else AppColors.black, // 배경색
             contentColor = if (isOutlined) AppColors.black else AppColors.white  // 텍스트색

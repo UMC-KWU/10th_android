@@ -80,7 +80,7 @@ fun EmptyCartScreen(
                 .align(Alignment.BottomCenter) // Box의 바닥 중앙에 배치
                 .padding(horizontal = 40.dp)
                 .padding(bottom = 22.dp),
-            onOrderClick = onOrderClick
+            onClick = onOrderClick
         )
     }
 }
