@@ -72,7 +72,11 @@ fun NavigationRoot(
                                 WishScreen(products = DummyDataSource.dummyWishProducts)
                             }
                             composable<Route.Cart> {
-                                CartScreen()
+                                CartScreen(
+                                    onNavigateToShop = {
+                                        onTabClick(Route.Shop)
+                                    }
+                                )
                             }
                             composable<Route.Profile> {
                                 ProfileScreen()
