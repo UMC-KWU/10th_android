@@ -52,7 +52,7 @@ fun HomeScreen(
             modifier = Modifier.padding(top = 8.dp, start = 20.dp)
         )
         Image(
-            painter = painterResource(R.mipmap.titleview_foreground),
+            painter = painterResource(R.drawable.titleview_foreground),
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = Modifier
