@@ -7,16 +7,13 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+/.idea/shelf/
+/.idea/codeStyles/
+/.idea/appInsightsSettings.xml
+/app/build
 .DS_Store
 /build
 /captures
 .externalNativeBuild
 .cxx
 local.properties
-
-# IDE
-.idea/
-
-# Claude Code
-.claude/
-CLAUDE.md
